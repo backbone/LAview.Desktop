@@ -1,0 +1,197 @@
+# Russian translations for laview-desktop package.
+# Copyright (C) 2015 THE laview-desktop'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the laview-desktop package.
+#  <backbone@backbone.ws>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: laview-desktop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-27 19:03+0300\n"
+"PO-Revision-Date: 2015-10-24 20:19+0300\n"
+"Last-Translator:  <backbone@backbone.ws>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:1
+msgid "\"Hello, earthlings\""
+msgstr "\"Привет, земляне\""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:2
+msgid "A greeting"
+msgstr "Приветствие"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:3
+msgid "Greeting of the invading martians"
+msgstr "Приветствие вторгнувшихся марсиан"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:4
+msgid "Bottles of beer"
+msgstr "Бутылки пива"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:5
+msgid "Number of bottles of beer on the wall"
+msgstr "Число бутылок пива на стене"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:6
+msgid "Is the light switched on?"
+msgstr "Включен ли свет?"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:7
+msgid "State of an imaginary light switch."
+msgstr "Состояние воображаемого выключателя света."
+
+#: src/MainWindow.vala:84
+msgid "Select templates"
+msgstr "Выберите шаблоны"
+
+#: src/MainWindow.vala:86
+msgid "_Cancel"
+msgstr "_Отмена"
+
+#: src/MainWindow.vala:87
+msgid "_Open"
+msgstr "_Открыть"
+
+#: src/main.vala:33
+msgid "Show the application's version"
+msgstr "Показать версию приложения"
+
+#: src/main.vala:52
+msgid "[FILE]"
+msgstr "[ФАЙЛ]"
+
+#: src/main.vala:64
+#, c-format
+msgid "Error: %s\n"
+msgstr "Ошибка: %s\n"
+
+#: src/main.vala:65
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr "Запустите '%s --help', чтобы увидеть весь список доступных опций.\n"
+
+#: ui/glade/laview-desktop.glade.h:1
+msgid "Kolan Sh (backbone@backbone.ws)"
+msgstr "Николай Ш (backbone@backbone.ws)"
+
+#: ui/glade/laview-desktop.glade.h:2
+msgid "LaTeX View or View Data in LaTeX."
+msgstr "LaTeX вид или Представление данных в LaTeX."
+
+#: ui/glade/laview-desktop.glade.h:3
+msgid "LAview"
+msgstr "LAview"
+
+#: ui/glade/laview-desktop.glade.h:4
+msgid "Kolan Sh"
+msgstr "Николай Ш"
+
+#: ui/glade/laview-desktop.glade.h:5
+msgid "LAview Preferences"
+msgstr "Параметры LAview"
+
+#: ui/glade/laview-desktop.glade.h:6
+msgid "Paths"
+msgstr "Пути"
+
+#: ui/glade/laview-desktop.glade.h:7
+msgid "LyX path on Windows"
+msgstr "Путь к LyX под Windows"
+
+#: ui/glade/laview-desktop.glade.h:8
+msgid "pdfLaTeX path on Windows"
+msgstr "Путь к pdfLaTeX под Windows"
+
+#: ui/glade/laview-desktop.glade.h:9
+msgid "Common"
+msgstr "Общие"
+
+#: ui/glade/laview-desktop.glade.h:10
+msgid "Protocol Plugins"
+msgstr "Плагины протоколов"
+
+#: ui/glade/laview-desktop.glade.h:11
+msgid "Protocol plugins"
+msgstr "Плагины протоколов"
+
+#: ui/glade/laview-desktop.glade.h:12
+msgid "Data Plugins"
+msgstr "Плагины данных"
+
+#: ui/glade/laview-desktop.glade.h:13
+msgid "Data plugins"
+msgstr "Плагины данных"
+
+#: ui/glade/laview-desktop.glade.h:14
+msgid "LAview Desktop"
+msgstr "Рабочее окно LAview"
+
+#: ui/glade/laview-desktop.glade.h:15
+msgid "_Template"
+msgstr "_Шаблон"
+
+#: ui/glade/laview-desktop.glade.h:16
+msgid "_Document"
+msgstr "_Документ"
+
+#: ui/glade/laview-desktop.glade.h:17
+msgid "_Application"
+msgstr "_Приложение"
+
+#: ui/glade/laview-desktop.glade.h:18
+msgid "_Help"
+msgstr "_Помощь"
+
+#: ui/glade/laview-desktop.glade.h:19
+msgid "Create a new template"
+msgstr "Создать новый шаблон"
+
+#: ui/glade/laview-desktop.glade.h:20
+msgid "Open a template"
+msgstr "Открыть шаблон"
+
+#: ui/glade/laview-desktop.glade.h:21
+msgid "Change selected template"
+msgstr "Изменить выбранный шаблон"
+
+#: ui/glade/laview-desktop.glade.h:22
+msgid "Delete selected template"
+msgstr "Удалить выбранный шаблон"
+
+#: ui/glade/laview-desktop.glade.h:23
+msgid "Document object preparing"
+msgstr "Подготовка объекта документа"
+
+#: ui/glade/laview-desktop.glade.h:24
+msgid "View and print the document"
+msgstr "Просмотр и печать документа"
+
+#: ui/glade/laview-desktop.glade.h:25
+msgid "Edit the result document"
+msgstr "Редактировать полученный документ"
+
+#: ui/glade/laview-desktop.glade.h:26
+msgid "Application preferences"
+msgstr "Параметры приложения"
+
+#: ui/glade/laview-desktop.glade.h:27
+msgid "Help and reference"
+msgstr "Помощь и справка"
+
+#: ui/glade/laview-desktop.glade.h:28
+msgid "Close the application"
+msgstr "Закрыть приложение"
+
+#: ui/glade/laview-desktop.glade.h:29
+msgid "Templates"
+msgstr "Шаблоны"
+
+#: ui/glade/laview-desktop.glade.h:30
+msgid "Document Objects"
+msgstr "Объекты документа"
