@@ -1,0 +1,2 @@
+BASEDIR=src config
+PKGS=gtk+-3.0 laview-core-0 laview-core-iface-0 gobject-plugin-iface-0 gobject-plugin-loader-0 gmodule-2.0 gee-0.8

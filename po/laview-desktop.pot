@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the laview-desktop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: laview-desktop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-27 19:04+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:1
+msgid "\"Hello, earthlings\""
+msgstr ""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:2
+msgid "A greeting"
+msgstr ""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:3
+msgid "Greeting of the invading martians"
+msgstr ""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:4
+msgid "Bottles of beer"
+msgstr ""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:5
+msgid "Number of bottles of beer on the wall"
+msgstr ""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:6
+msgid "Is the light switched on?"
+msgstr ""
+
+#: config/ws.backbone.laview.desktop.gschema.xml.h:7
+msgid "State of an imaginary light switch."
+msgstr ""
+
+#: src/MainWindow.vala:84
+msgid "Select templates"
+msgstr ""
+
+#: src/MainWindow.vala:86
+msgid "_Cancel"
+msgstr ""
+
+#: src/MainWindow.vala:87
+msgid "_Open"
+msgstr ""
+
+#: src/main.vala:33
+msgid "Show the application's version"
+msgstr ""
+
+#: src/main.vala:52
+msgid "[FILE]"
+msgstr ""
+
+#: src/main.vala:64
+#, c-format
+msgid "Error: %s\n"
+msgstr ""
+
+#: src/main.vala:65
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:1
+msgid "Kolan Sh (backbone@backbone.ws)"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:2
+msgid "LaTeX View or View Data in LaTeX."
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:3
+msgid "LAview"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:4
+msgid "Kolan Sh"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:5
+msgid "LAview Preferences"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:6
+msgid "Paths"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:7
+msgid "LyX path on Windows"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:8
+msgid "pdfLaTeX path on Windows"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:9
+msgid "Common"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:10
+msgid "Protocol Plugins"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:11
+msgid "Protocol plugins"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:12
+msgid "Data Plugins"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:13
+msgid "Data plugins"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:14
+msgid "LAview Desktop"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:15
+msgid "_Template"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:16
+msgid "_Document"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:17
+msgid "_Application"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:18
+msgid "_Help"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:19
+msgid "Create a new template"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:20
+msgid "Open a template"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:21
+msgid "Change selected template"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:22
+msgid "Delete selected template"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:23
+msgid "Document object preparing"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:24
+msgid "View and print the document"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:25
+msgid "Edit the result document"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:26
+msgid "Application preferences"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:27
+msgid "Help and reference"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:28
+msgid "Close the application"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:29
+msgid "Templates"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:30
+msgid "Document Objects"
+msgstr ""

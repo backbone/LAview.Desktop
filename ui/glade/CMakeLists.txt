@@ -1,0 +1,2 @@
+SET (GladeFile ${PROJECT_LOWERCASE_NAME})
+INCLUDE (GladeCommonRules)

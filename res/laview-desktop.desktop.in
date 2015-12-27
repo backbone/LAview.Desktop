@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=LAview Desktop @MAJOR@.@MINOR@.@PATCH@
+Comment=LAview Desktop Application
+Exec=laview-desktop-@MAJOR@ %u
+Icon=laview-desktop
+Terminal=false
+Type=Application
+MimeType=laview/lyx;
+Categories=Office;

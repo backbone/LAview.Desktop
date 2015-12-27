@@ -1,0 +1,7 @@
+INCLUDE (GResourceCommonRules)
+
+CONFIGURE_FILE ("${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_LOWERCASE_NAME}.desktop.in"
+                "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_LOWERCASE_NAME}-${MAJOR}.desktop")
+INSTALL (FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_LOWERCASE_NAME}-${MAJOR}.desktop"
+         DESTINATION "share/applications")
+INSTALL (FILES "laview-desktop.png" DESTINATION "share/pixmaps")
