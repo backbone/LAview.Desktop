@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-27 19:03+0300\n"
+"POT-Creation-Date: 2016-01-24 02:51+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: German\n"
@@ -45,6 +45,15 @@ msgstr ""
 msgid "State of an imaginary light switch."
 msgstr ""
 
+#: src/MainWindow.vala:58
+msgid "We're ready, Commander! Select or create a template. :-)"
+msgstr ""
+
+#: src/MainWindow.vala:76 src/MainWindow.vala:120 src/MainWindow.vala:194
+#: src/MainWindow.vala:212
+msgid "Error"
+msgstr ""
+
 #: src/MainWindow.vala:84
 msgid "Select templates"
 msgstr ""
@@ -55,6 +64,18 @@ msgstr ""
 
 #: src/MainWindow.vala:87
 msgid "_Open"
+msgstr ""
+
+#: src/MainWindow.vala:166
+msgid "After composing all objects print the document."
+msgstr ""
+
+#: src/MainWindow.vala:248
+msgid "Document analized, select an object and set it's properties."
+msgstr ""
+
+#: src/MainWindow.vala:253
+msgid "Press 'Properties' button to compose the object."
 msgstr ""
 
 #: src/main.vala:33

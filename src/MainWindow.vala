@@ -55,7 +55,7 @@ namespace LAview.Desktop {
 
 		public void show_all () {
 			window.show_all ();
-			statusbar_show ("We're ready, Commander! Select or create a template. :-)");
+			statusbar_show (_("We're ready, Commander! Select or create a template. :-)"));
 		}
 
 		[CCode (instance_pos = -1)]
@@ -73,7 +73,7 @@ namespace LAview.Desktop {
 				subprocess.spawnv(argv);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, @"Error: $(err.message).");
+				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -117,7 +117,7 @@ namespace LAview.Desktop {
 				subprocess.spawnv(args);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, @"Error: $(err.message).");
+				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -163,7 +163,7 @@ namespace LAview.Desktop {
 			if (t_indices.length != 0 && o_indices.length != 0) {
 				AppCore.core.compose_object (t_indices[0], o_indices[0]);
 			}
-			statusbar_show ("After composing all objects print the document.");
+			statusbar_show (_("After composing all objects print the document."));
 		}
 
 		[CCode (instance_pos = -1)]
@@ -191,7 +191,7 @@ namespace LAview.Desktop {
 					                            post_print);
 				} catch (Error err) {
 					var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-					                             ButtonsType.CLOSE, @"Error: $(err.message).");
+					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 					msg.response.connect ((response_id) => { msg.destroy (); } );
 					msg.show ();
 				}
@@ -209,7 +209,7 @@ namespace LAview.Desktop {
 				show_uri (null, "https://redmine.backbone.ws/projects/laview/wiki", Gdk.CURRENT_TIME);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, @"Error: $(err.message).");
+				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -245,12 +245,12 @@ namespace LAview.Desktop {
 					liststore_doc_objects.set (iter, 0, t);
 				}
 			}
-			statusbar_show ("Document analized, select an object and set it's properties.");
+			statusbar_show (_("Document analized, select an object and set it's properties."));
 		}
 
 		[CCode (instance_pos = -1)]
 		public void objects_cursor_changed (Gtk.TreeView treeview) {
-			statusbar_show ("Press 'Properties' button to compose the object.");
+			statusbar_show (_("Press 'Properties' button to compose the object."));
 		}
 	}
 }
