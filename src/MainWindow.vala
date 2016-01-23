@@ -96,7 +96,7 @@ namespace LAview.Desktop {
 			filter.add_pattern ("*.lyx");
 
 			if (chooser.run () == ResponseType.ACCEPT) {
-				SList<string> paths = chooser.get_filenames ();
+				var paths = chooser.get_filenames ();
 
 				foreach (unowned string path in paths)
 					AppCore.core.add_template (path);
