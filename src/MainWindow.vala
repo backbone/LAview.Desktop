@@ -276,8 +276,12 @@ namespace LAview.Desktop {
 			// set current pdf file name or select an existance one
 			var template_name = AppCore.core.get_template_path_by_index (indices[0]);
 			template_name = File.new_for_path(template_name).get_basename ();
-			if (template_name.down().has_suffix(".lyx"))
-				template_name = template_name.splice (template_name.length-4, template_name.length, ".pdf");
+			if (   template_name.down().has_suffix(".lyx")
+			    || template_name.down().has_suffix(".tex")
+			) {
+				var date = Time.local (time_t()).format("-%Y.%m.%d_%H-%M-%S");
+				template_name = template_name.splice (template_name.length-4, template_name.length, date+".pdf");
+			}
 			if (File.new_for_path(template_name).query_exists())
 				chooser.set_filename (template_name);
 			else
