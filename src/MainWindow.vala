@@ -55,7 +55,7 @@ namespace LAview.Desktop {
 
 		public void show_all () {
 			window.show_all ();
-			statusbar_show ("We're ready, Commander! Select or create a template. :-)");
+			statusbar_show (_("We're ready, Commander! Select or create a template. :-)"));
 		}
 
 		[CCode (instance_pos = -1)]
@@ -73,7 +73,7 @@ namespace LAview.Desktop {
 				subprocess.spawnv(argv);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, @"Error: $(err.message).");
+				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -96,7 +96,7 @@ namespace LAview.Desktop {
 			filter.add_pattern ("*.lyx");
 
 			if (chooser.run () == ResponseType.ACCEPT) {
-				SList<string> paths = chooser.get_filenames ();
+				var paths = chooser.get_filenames ();
 
 				foreach (unowned string path in paths)
 					AppCore.core.add_template (path);
@@ -117,7 +117,7 @@ namespace LAview.Desktop {
 				subprocess.spawnv(args);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, @"Error: $(err.message).");
+				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -163,7 +163,7 @@ namespace LAview.Desktop {
 			if (t_indices.length != 0 && o_indices.length != 0) {
 				AppCore.core.compose_object (t_indices[0], o_indices[0]);
 			}
-			statusbar_show ("After composing all objects print the document.");
+			statusbar_show (_("After composing all objects print the document."));
 		}
 
 		[CCode (instance_pos = -1)]
@@ -191,7 +191,7 @@ namespace LAview.Desktop {
 					                            post_print);
 				} catch (Error err) {
 					var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-					                             ButtonsType.CLOSE, @"Error: $(err.message).");
+					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 					msg.response.connect ((response_id) => { msg.destroy (); } );
 					msg.show ();
 				}
@@ -209,7 +209,7 @@ namespace LAview.Desktop {
 				show_uri (null, "https://redmine.backbone.ws/projects/laview/wiki", Gdk.CURRENT_TIME);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, @"Error: $(err.message).");
+				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -245,12 +245,68 @@ namespace LAview.Desktop {
 					liststore_doc_objects.set (iter, 0, t);
 				}
 			}
-			statusbar_show ("Document analized, select an object and set it's properties.");
+			statusbar_show (_("Document analized, select an object and set it's properties."));
 		}
 
 		[CCode (instance_pos = -1)]
 		public void objects_cursor_changed (Gtk.TreeView treeview) {
-			statusbar_show ("Press 'Properties' button to compose the object.");
+			statusbar_show (_("Press 'Properties' button to compose the object."));
+		}
+
+		[CCode (instance_pos = -1)]
+		public void action_saveas_activate (Gtk.Action action) {
+			var indices = get_template_indices ();
+			if (indices.length == 0) return;
+			var tmp_pdf = AppCore.core.get_pdf_file_path (indices[0]);
+			if (tmp_pdf == null || tmp_pdf == "") {
+				statusbar_show (_("Prepare the document first! >;-]"));
+				return;
+			}
+
+			FileChooserDialog chooser = new Gtk.FileChooserDialog (_("Select destination"), window,
+			                                FileChooserAction.SAVE,
+			                                _("_Cancel"), ResponseType.CANCEL,
+			                                _("_Save"), ResponseType.ACCEPT);
+			chooser.select_multiple = false;
+			FileFilter filter = new FileFilter ();
+			chooser.set_filter (filter);
+			filter.add_mime_type ("application/pdf");
+			filter.add_pattern ("*.pdf");
+
+			// set current pdf file name or select an existance one
+			var template_name = AppCore.core.get_template_path_by_index (indices[0]);
+			template_name = File.new_for_path(template_name).get_basename ();
+			if (template_name.down().has_suffix(".lyx"))
+				template_name = template_name.splice (template_name.length-4, template_name.length, ".pdf");
+			if (File.new_for_path(template_name).query_exists())
+				chooser.set_filename (template_name);
+			else
+				chooser.set_current_name (template_name);
+
+			// open dialog
+			var response = chooser.run ();
+
+			// process response
+			if (response == ResponseType.ACCEPT) {
+				var save_path = chooser.get_filename ();
+				var file_src = File.new_for_path (tmp_pdf);
+				var file_dest = File.new_for_path (save_path);
+				try {
+					file_src.copy (file_dest, FileCopyFlags.OVERWRITE, null,
+					           (current_num_bytes, total_num_bytes) => {
+									statusbar_show (@"$current_num_bytes "+_("bytes of")+
+					                                @" $total_num_bytes "+_("bytes copied/saved")+".");
+					           });
+					statusbar_show (_("Save/Copy operation complete! :-)"));
+				} catch (Error err) {
+					var msg = new MessageDialog (chooser, DialogFlags.MODAL, MessageType.ERROR,
+					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+					msg.response.connect ((response_id) => { msg.destroy (); chooser.close (); } );
+					msg.show ();
+				}
+			}
+
+			chooser.close ();
 		}
 	}
 }

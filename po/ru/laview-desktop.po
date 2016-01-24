@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-27 19:03+0300\n"
+"POT-Creation-Date: 2016-01-24 02:59+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: Russian\n"
@@ -46,17 +46,62 @@ msgstr "Включен ли свет?"
 msgid "State of an imaginary light switch."
 msgstr "Состояние воображаемого выключателя света."
 
+#: src/MainWindow.vala:58
+msgid "We're ready, Commander! Select or create a template. :-)"
+msgstr "Мы готовы, Командир! Выберите или создайте шаблон. :-)"
+
+#: src/MainWindow.vala:76 src/MainWindow.vala:120 src/MainWindow.vala:194
+#: src/MainWindow.vala:212 src/MainWindow.vala:302
+msgid "Error"
+msgstr "Ошибка"
+
 #: src/MainWindow.vala:84
 msgid "Select templates"
 msgstr "Выберите шаблоны"
 
-#: src/MainWindow.vala:86
+#: src/MainWindow.vala:86 src/MainWindow.vala:268
 msgid "_Cancel"
 msgstr "_Отмена"
 
 #: src/MainWindow.vala:87
 msgid "_Open"
 msgstr "_Открыть"
+
+#: src/MainWindow.vala:166
+msgid "After composing all objects print the document."
+msgstr "После компоновки всех объектов напечатайте документ."
+
+#: src/MainWindow.vala:248
+msgid "Document analized, select an object and set it's properties."
+msgstr "Документ проанализирован, выберите объект и установите его свойства."
+
+#: src/MainWindow.vala:253
+msgid "Press 'Properties' button to compose the object."
+msgstr "Нажмите кнопку 'Свойства' для компоновки объекта."
+
+#: src/MainWindow.vala:262
+msgid "Prepare the document first! >;-]"
+msgstr "Сначала подготовьте документ! >;-]"
+
+#: src/MainWindow.vala:266
+msgid "Select destination"
+msgstr "Выберите назначение"
+
+#: src/MainWindow.vala:269
+msgid "_Save"
+msgstr "_Сохранить"
+
+#: src/MainWindow.vala:297
+msgid "bytes copied/saved"
+msgstr "байт скопировано/сохранено"
+
+#: src/MainWindow.vala:297
+msgid "bytes of"
+msgstr "байт из"
+
+#: src/MainWindow.vala:299
+msgid "Save/Copy operation complete! :-)"
+msgstr "Операция сохранения/копирования завершена! :-)"
 
 #: src/main.vala:33
 msgid "Show the application's version"
@@ -177,21 +222,25 @@ msgid "Edit the result document"
 msgstr "Редактировать полученный документ"
 
 #: ui/glade/laview-desktop.glade.h:26
+msgid "Save the document as..."
+msgstr "Сохранить документ как..."
+
+#: ui/glade/laview-desktop.glade.h:27
 msgid "Application preferences"
 msgstr "Параметры приложения"
 
-#: ui/glade/laview-desktop.glade.h:27
+#: ui/glade/laview-desktop.glade.h:28
 msgid "Help and reference"
 msgstr "Помощь и справка"
 
-#: ui/glade/laview-desktop.glade.h:28
+#: ui/glade/laview-desktop.glade.h:29
 msgid "Close the application"
 msgstr "Закрыть приложение"
 
-#: ui/glade/laview-desktop.glade.h:29
+#: ui/glade/laview-desktop.glade.h:30
 msgid "Templates"
 msgstr "Шаблоны"
 
-#: ui/glade/laview-desktop.glade.h:30
+#: ui/glade/laview-desktop.glade.h:31
 msgid "Document Objects"
 msgstr "Объекты документа"

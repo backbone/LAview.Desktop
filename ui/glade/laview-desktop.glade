@@ -94,6 +94,12 @@
         <signal name="activate" handler="laview_desktop_main_window_action_edit_result_activate" swapped="no"/>
       </object>
     </child>
+    <child>
+      <object class="GtkAction" id="action_saveas">
+        <property name="always_show_image">True</property>
+        <signal name="activate" handler="laview_desktop_main_window_action_saveas_activate" swapped="no"/>
+      </object>
+    </child>
   </object>
   <object class="GtkFileFilter" id="filefilter_open">
     <patterns>
@@ -523,6 +529,18 @@
                         <property name="always_show_image">True</property>
                       </object>
                     </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menuitem_saveas">
+                        <property name="label">gtk-save</property>
+                        <property name="use_action_appearance">False</property>
+                        <property name="related_action">action_saveas</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -716,6 +734,21 @@
                 <property name="label" translatable="yes">_Document</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-edit</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbutton_saveas">
+                <property name="use_action_appearance">False</property>
+                <property name="related_action">action_saveas</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Save the document as...</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-save</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1030,6 +1063,23 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="button_saveas">
+                        <property name="label">gtk-save</property>
+                        <property name="use_action_appearance">False</property>
+                        <property name="related_action">action_saveas</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="use_stock">True</property>
+                        <property name="always_show_image">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                   </object>
