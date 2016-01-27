@@ -273,11 +273,19 @@ namespace LAview.Desktop {
 			filter.add_mime_type ("application/pdf");
 			filter.add_pattern ("*.pdf");
 
+			// set folder
+			if (AppCore.settings.pdf_save_path != "")
+				chooser.set_current_folder(AppCore.settings.pdf_save_path);
+
 			// set current pdf file name or select an existance one
 			var template_name = AppCore.core.get_template_path_by_index (indices[0]);
 			template_name = File.new_for_path(template_name).get_basename ();
-			if (template_name.down().has_suffix(".lyx"))
-				template_name = template_name.splice (template_name.length-4, template_name.length, ".pdf");
+			if (   template_name.down().has_suffix(".lyx")
+			    || template_name.down().has_suffix(".tex")
+			) {
+				var date = Time.local (time_t()).format("-%Y.%m.%d_%H-%M-%S");
+				template_name = template_name.splice (template_name.length-4, template_name.length, date+".pdf");
+			}
 			if (File.new_for_path(template_name).query_exists())
 				chooser.set_filename (template_name);
 			else
@@ -288,15 +296,13 @@ namespace LAview.Desktop {
 
 			// process response
 			if (response == ResponseType.ACCEPT) {
-				var save_path = chooser.get_filename ();
-				var file_src = File.new_for_path (tmp_pdf);
-				var file_dest = File.new_for_path (save_path);
 				try {
-					file_src.copy (file_dest, FileCopyFlags.OVERWRITE, null,
+					File.new_for_path (tmp_pdf).copy (chooser.get_file(), FileCopyFlags.OVERWRITE, null,
 					           (current_num_bytes, total_num_bytes) => {
 									statusbar_show (@"$current_num_bytes "+_("bytes of")+
 					                                @" $total_num_bytes "+_("bytes copied/saved")+".");
 					           });
+					AppCore.settings.pdf_save_path = chooser.get_file().get_parent().get_path();
 					statusbar_show (_("Save/Copy operation complete! :-)"));
 				} catch (Error err) {
 					var msg = new MessageDialog (chooser, DialogFlags.MODAL, MessageType.ERROR,

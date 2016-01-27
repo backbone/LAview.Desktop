@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-24 02:59+0300\n"
+"POT-Creation-Date: 2016-01-27 04:50+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: Russian\n"
@@ -19,39 +19,19 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: config/ws.backbone.laview.desktop.gschema.xml.h:1
-msgid "\"Hello, earthlings\""
-msgstr "\"Привет, земляне\""
+msgid "Directory to save pdf files (last selected path)."
+msgstr "Директория для сохранения pdf файлов (последний выбранный путь)."
 
 #: config/ws.backbone.laview.desktop.gschema.xml.h:2
-msgid "A greeting"
-msgstr "Приветствие"
-
-#: config/ws.backbone.laview.desktop.gschema.xml.h:3
-msgid "Greeting of the invading martians"
-msgstr "Приветствие вторгнувшихся марсиан"
-
-#: config/ws.backbone.laview.desktop.gschema.xml.h:4
-msgid "Bottles of beer"
-msgstr "Бутылки пива"
-
-#: config/ws.backbone.laview.desktop.gschema.xml.h:5
-msgid "Number of bottles of beer on the wall"
-msgstr "Число бутылок пива на стене"
-
-#: config/ws.backbone.laview.desktop.gschema.xml.h:6
-msgid "Is the light switched on?"
-msgstr "Включен ли свет?"
-
-#: config/ws.backbone.laview.desktop.gschema.xml.h:7
-msgid "State of an imaginary light switch."
-msgstr "Состояние воображаемого выключателя света."
+msgid "It is too lazy to select a directory each time..."
+msgstr "Слишком лениво выбирать каждый раз директорию для сохранения..."
 
 #: src/MainWindow.vala:58
 msgid "We're ready, Commander! Select or create a template. :-)"
 msgstr "Мы готовы, Командир! Выберите или создайте шаблон. :-)"
 
 #: src/MainWindow.vala:76 src/MainWindow.vala:120 src/MainWindow.vala:194
-#: src/MainWindow.vala:212 src/MainWindow.vala:302
+#: src/MainWindow.vala:212 src/MainWindow.vala:312
 msgid "Error"
 msgstr "Ошибка"
 
@@ -91,15 +71,15 @@ msgstr "Выберите назначение"
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/MainWindow.vala:297
-msgid "bytes copied/saved"
-msgstr "байт скопировано/сохранено"
-
-#: src/MainWindow.vala:297
+#: src/MainWindow.vala:305
 msgid "bytes of"
 msgstr "байт из"
 
-#: src/MainWindow.vala:299
+#: src/MainWindow.vala:306
+msgid "bytes copied/saved"
+msgstr "байт скопировано/сохранено"
+
+#: src/MainWindow.vala:309
 msgid "Save/Copy operation complete! :-)"
 msgstr "Операция сохранения/копирования завершена! :-)"
 

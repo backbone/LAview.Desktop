@@ -45,7 +45,6 @@ namespace LAview.Desktop {
 		try {
 
 			AppDirs.init (args);
-			AppSettings.init (args);
 			AppCore.init (args);
 			Resources.init (args);
 
