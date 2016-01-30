@@ -395,7 +395,6 @@
     <property name="margin_top">3</property>
     <property name="border_width">4</property>
     <property name="title" translatable="yes">LAview Desktop</property>
-    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkBox" id="main_vbox">
         <property name="visible">True</property>

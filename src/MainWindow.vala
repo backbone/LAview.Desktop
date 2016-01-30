@@ -40,6 +40,8 @@ namespace LAview.Desktop {
 			application.app_menu = builder.get_object ("menubar") as MenuModel;
 			application.menubar = builder.get_object ("main_toolbar") as MenuModel;
 			window.application = application;
+
+			window.destroy.connect (() => { window.application.quit (); });
 		}
 
 		void fill_liststore_templates () {
