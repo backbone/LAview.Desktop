@@ -7,7 +7,7 @@ namespace LAview.Desktop {
 	 */
 	public class MainWindow {
 
-		Window window;
+		ApplicationWindow window;
 		PreferencesDialog pref_dialog;
 		AboutDialogWindow about_dialog;
 		SubprocessDialog subprocess_dialog;
@@ -17,12 +17,12 @@ namespace LAview.Desktop {
 		TreeView treeview_templates;
 		TreeView treeview_objects;
 
-		public MainWindow () throws Error {
+		public MainWindow (Gtk.Application application) throws Error {
 			var builder = new Builder ();
 			builder.add_from_file (AppDirs.ui_dir + "/laview-desktop.glade");
 			builder.connect_signals (this);
 
-			window = builder.get_object ("main_window") as Window;
+			window = builder.get_object ("main_window") as ApplicationWindow;
 			statusbar = builder.get_object ("statusbar") as Statusbar;
 			liststore_templates = builder.get_object ("liststore_templates") as Gtk.ListStore;
 			liststore_doc_objects = builder.get_object ("liststore_objects") as Gtk.ListStore;
@@ -31,11 +31,15 @@ namespace LAview.Desktop {
 			window.title = "LAview Desktop"
 			        + @" $(Config.VERSION_MAJOR).$(Config.VERSION_MINOR).$(Config.VERSION_PATCH)";
 
-			pref_dialog = new PreferencesDialog (window);
-			subprocess_dialog = new SubprocessDialog (window);
-			about_dialog = new AboutDialogWindow (window);
+			pref_dialog = new PreferencesDialog (application, window);
+			subprocess_dialog = new SubprocessDialog (application, window);
+			about_dialog = new AboutDialogWindow (application, window);
 
 			fill_liststore_templates ();
+
+			application.app_menu = builder.get_object ("menubar") as MenuModel;
+			application.menubar = builder.get_object ("main_toolbar") as MenuModel;
+			window.application = application;
 		}
 
 		void fill_liststore_templates () {
@@ -313,6 +317,11 @@ namespace LAview.Desktop {
 			}
 
 			chooser.close ();
+		}
+
+		[CCode (instance_pos = -1)]
+		public void action_quit_activate (Gtk.Action action) {
+			window.application.quit();
 		}
 	}
 }

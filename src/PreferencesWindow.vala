@@ -12,14 +12,15 @@ namespace LAview.Desktop {
 		FileChooserButton filechooserbutton_lyx;
 		FileChooserButton filechooserbutton_pdflatex;
 
-		public PreferencesDialog (Window parent) throws Error {
+		public PreferencesDialog (Gtk.Application application, Window parent) throws Error {
 			var builder = new Builder ();
 			builder.add_from_file (AppDirs.ui_dir + "/laview-desktop.glade");
 			builder.connect_signals (this);
 
 			dialog = builder.get_object ("preferences_window") as Dialog;
-			dialog.set_transient_for (parent);
-			dialog.set_modal (true);
+			dialog.transient_for = parent;
+			dialog.modal = true;
+			dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 			liststore_data = builder.get_object ("liststore_data") as Gtk.ListStore;
 			liststore_protocols = builder.get_object ("liststore_protocols") as Gtk.ListStore;

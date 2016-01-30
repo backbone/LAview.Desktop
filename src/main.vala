@@ -4,7 +4,7 @@ namespace LAview.Desktop {
 
 	using Gtk, LAview.Desktop;
 
-	namespace CommandlineOptions {
+	/*namespace CommandlineOptions {
 		// bool no_startup_progress = false;
 		// string data_dir = null;
 		bool show_version = false;
@@ -38,34 +38,46 @@ namespace LAview.Desktop {
 
 			return entries;
 		}
-	}
+	}*/
 
-	void main (string[] args) {
 
-		try {
+	public class LAviewDesktopApp : Gtk.Application {
 
-			AppDirs.init (args);
-			AppCore.init (args);
-			Resources.init (args);
+		MainWindow main_window;
 
-			Gtk.init_with_args (ref args, _("[FILE]"), CommandlineOptions.get_options (), GETTEXT_PACKAGE);
-
-			// Internationalization
-			Intl.bindtextdomain (GETTEXT_PACKAGE, AppDirs.locale_dir);
-			Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-
-			var main_window = new MainWindow ();
-			main_window.show_all ();
-
-			Gtk.main ();
-
-		} catch (Error e) {
-			stderr.printf (_("Error: %s\n"), e.message);
-			stderr.printf (_("Run '%s --help' to see a full list of available command line options.\n"), args[0]);
+		public LAviewDesktopApp () {
+			Object(application_id: "ws.backbone.laview.desktop",
+			       flags: ApplicationFlags.FLAGS_NONE);
 		}
 
-		AppDirs.terminate();
+		protected override void activate () {
+			try {
+				main_window = new MainWindow (this);
+				main_window.show_all ();
+			} catch (Error e) {
+				stderr.printf (_("Error: %s\n"), e.message);
+			}
+		}
 
-		return;
+		public static int main (string[] args) {
+			try {
+				AppDirs.init (args);
+				AppCore.init (args);
+				Resources.init (args);
+				//Gtk.init_with_args (ref args, _("[FILE]"), CommandlineOptions.get_options (), GETTEXT_PACKAGE);
+
+				// Internationalization
+				Intl.bindtextdomain (GETTEXT_PACKAGE, AppDirs.locale_dir);
+				Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+
+				var app = new LAviewDesktopApp ();
+				return app.run (args);
+
+			} catch (Error e) {
+				stderr.printf (_("Error: %s\n"), e.message);
+				stderr.printf (_("Run '%s --help' to see a full list of available command line options.\n"), args[0]);
+				return e.code;
+			}
+		}
 	}
 }
