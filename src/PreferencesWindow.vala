@@ -35,22 +35,18 @@ namespace LAview.Desktop {
 		}
 
 		void fill_liststore_data () {
-			var data_plugins = AppCore.core.get_data_plugins ();
-
 			liststore_data.clear();
 			TreeIter iter = TreeIter();
-			foreach (var p in data_plugins.entries) {
+			foreach (var p in AppCore.core.data_plugins.entries) {
 				liststore_data.append (out iter);
 				liststore_data.set (iter, 0, p.value.get_readable_name ());
 			}
 		}
 
 		void fill_liststore_protocols () {
-			var protocol_plugins = AppCore.core.get_protocol_plugins ();
-
 			liststore_protocols.clear();
 			TreeIter iter = TreeIter();
-			foreach (var p in protocol_plugins.entries) {
+			foreach (var p in AppCore.core.protocol_plugins.entries) {
 				liststore_protocols.append (out iter);
 				liststore_protocols.set (iter, 0, p.value.get_readable_name ());
 			}
