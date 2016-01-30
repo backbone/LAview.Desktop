@@ -7,7 +7,7 @@ namespace LAview.Desktop {
 	 */
 	public class MainWindow {
 
-		Window window;
+		ApplicationWindow window;
 		PreferencesDialog pref_dialog;
 		AboutDialogWindow about_dialog;
 		SubprocessDialog subprocess_dialog;
@@ -17,12 +17,12 @@ namespace LAview.Desktop {
 		TreeView treeview_templates;
 		TreeView treeview_objects;
 
-		public MainWindow () throws Error {
+		public MainWindow (Gtk.Application application) throws Error {
 			var builder = new Builder ();
 			builder.add_from_file (AppDirs.ui_dir + "/laview-desktop.glade");
 			builder.connect_signals (this);
 
-			window = builder.get_object ("main_window") as Window;
+			window = builder.get_object ("main_window") as ApplicationWindow;
 			statusbar = builder.get_object ("statusbar") as Statusbar;
 			liststore_templates = builder.get_object ("liststore_templates") as Gtk.ListStore;
 			liststore_doc_objects = builder.get_object ("liststore_objects") as Gtk.ListStore;
@@ -31,11 +31,17 @@ namespace LAview.Desktop {
 			window.title = "LAview Desktop"
 			        + @" $(Config.VERSION_MAJOR).$(Config.VERSION_MINOR).$(Config.VERSION_PATCH)";
 
-			pref_dialog = new PreferencesDialog (window);
-			subprocess_dialog = new SubprocessDialog (window);
-			about_dialog = new AboutDialogWindow (window);
+			pref_dialog = new PreferencesDialog (application, window);
+			subprocess_dialog = new SubprocessDialog (application, window);
+			about_dialog = new AboutDialogWindow (application, window);
 
 			fill_liststore_templates ();
+
+			application.app_menu = builder.get_object ("menubar") as MenuModel;
+			application.menubar = builder.get_object ("main_toolbar") as MenuModel;
+			window.application = application;
+
+			window.destroy.connect (() => { window.application.quit (); });
 		}
 
 		void fill_liststore_templates () {
@@ -86,14 +92,13 @@ namespace LAview.Desktop {
 			                                _("_Cancel"), ResponseType.CANCEL,
 			                                _("_Open"), ResponseType.ACCEPT);
 			chooser.select_multiple = true;
-			FileFilter filter = new FileFilter ();
-			chooser.set_filter (filter);
-			filter.add_mime_type ("application/x-tex");
-			filter.add_mime_type ("application/x-latex");
-			filter.add_mime_type ("application/x-lyx");
-			filter.add_pattern ("*.tex");
-			filter.add_pattern ("*.latex");
-			filter.add_pattern ("*.lyx");
+			chooser.filter = new FileFilter ();
+			chooser.filter.add_mime_type ("application/x-tex");
+			chooser.filter.add_mime_type ("application/x-latex");
+			chooser.filter.add_mime_type ("application/x-lyx");
+			chooser.filter.add_pattern ("*.tex");
+			chooser.filter.add_pattern ("*.latex");
+			chooser.filter.add_pattern ("*.lyx");
 
 			if (chooser.run () == ResponseType.ACCEPT) {
 				var paths = chooser.get_filenames ();
@@ -268,14 +273,13 @@ namespace LAview.Desktop {
 			                                _("_Cancel"), ResponseType.CANCEL,
 			                                _("_Save"), ResponseType.ACCEPT);
 			chooser.select_multiple = false;
-			FileFilter filter = new FileFilter ();
-			chooser.set_filter (filter);
-			filter.add_mime_type ("application/pdf");
-			filter.add_pattern ("*.pdf");
+			chooser.filter = new FileFilter ();
+			chooser.filter.add_mime_type ("application/pdf");
+			chooser.filter.add_pattern ("*.pdf");
 
 			// set folder
 			if (AppCore.settings.pdf_save_path != "")
-				chooser.set_current_folder(AppCore.settings.pdf_save_path);
+				chooser.set_current_folder (AppCore.settings.pdf_save_path);
 
 			// set current pdf file name or select an existance one
 			var template_name = AppCore.core.get_template_path_by_index (indices[0]);
@@ -313,6 +317,11 @@ namespace LAview.Desktop {
 			}
 
 			chooser.close ();
+		}
+
+		[CCode (instance_pos = -1)]
+		public void action_quit_activate (Gtk.Action action) {
+			window.application.quit();
 		}
 	}
 }

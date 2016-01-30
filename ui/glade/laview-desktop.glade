@@ -100,6 +100,12 @@
         <signal name="activate" handler="laview_desktop_main_window_action_saveas_activate" swapped="no"/>
       </object>
     </child>
+    <child>
+      <object class="GtkAction" id="action_quit">
+        <property name="always_show_image">True</property>
+        <signal name="activate" handler="laview_desktop_main_window_action_quit_activate" swapped="no"/>
+      </object>
+    </child>
   </object>
   <object class="GtkFileFilter" id="filefilter_open">
     <patterns>
@@ -382,14 +388,13 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkWindow" id="main_window">
+  <object class="GtkApplicationWindow" id="main_window">
     <property name="width_request">640</property>
     <property name="height_request">480</property>
     <property name="can_focus">False</property>
     <property name="margin_top">3</property>
     <property name="border_width">4</property>
     <property name="title" translatable="yes">LAview Desktop</property>
-    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child>
       <object class="GtkBox" id="main_vbox">
         <property name="visible">True</property>
@@ -469,12 +474,12 @@
                       <object class="GtkImageMenuItem" id="menuitem_quit">
                         <property name="label">gtk-quit</property>
                         <property name="use_action_appearance">False</property>
+                        <property name="related_action">action_quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
-                        <signal name="activate" handler="gtk_main_quit" swapped="no"/>
                       </object>
                     </child>
                   </object>
@@ -807,12 +812,13 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_quit">
+                <property name="use_action_appearance">False</property>
+                <property name="related_action">action_quit</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Close the application</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-quit</property>
-                <signal name="clicked" handler="gtk_main_quit" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

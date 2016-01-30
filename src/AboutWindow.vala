@@ -8,15 +8,16 @@ namespace LAview.Desktop {
 	public class AboutDialogWindow {
 		AboutDialog dialog;
 
-		public AboutDialogWindow (Window parent) throws Error {
+		public AboutDialogWindow (Gtk.Application application, Window parent) throws Error {
 			var builder = new Builder ();
 			builder.add_from_file (AppDirs.ui_dir + "/laview-desktop.glade");
 			builder.connect_signals (this);
 
 			dialog = builder.get_object ("aboutdialog_window") as AboutDialog;
-			dialog.set_destroy_with_parent (true);
-			dialog.set_transient_for (parent);
-			dialog.set_modal (true);
+			dialog.destroy_with_parent = true;
+			dialog.transient_for = parent;
+			dialog.modal = true;
+			dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 
 			dialog.version = @" $(Config.VERSION_MAJOR).$(Config.VERSION_MINOR).$(Config.VERSION_PATCH)";
