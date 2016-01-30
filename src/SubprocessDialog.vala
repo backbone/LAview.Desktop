@@ -13,14 +13,15 @@ namespace LAview.Desktop {
 
 		public delegate void PostProcessDelegate ();
 
-		public SubprocessDialog (Window parent) throws Error {
+		public SubprocessDialog (Gtk.Application application, Window parent) throws Error {
 			var builder = new Builder ();
 			builder.add_from_file (AppDirs.ui_dir + "/laview-desktop.glade");
 			builder.connect_signals (this);
 
 			dialog = builder.get_object ("subprocess_dialog") as Dialog;
-			dialog.set_transient_for (parent);
-			dialog.set_modal (true);
+			dialog.transient_for = parent;
+			dialog.modal = true;
+			dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 			textview_stderrout = builder.get_object ("textview_stderrout") as TextView;
 		}
