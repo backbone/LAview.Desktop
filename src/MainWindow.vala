@@ -90,14 +90,13 @@ namespace LAview.Desktop {
 			                                _("_Cancel"), ResponseType.CANCEL,
 			                                _("_Open"), ResponseType.ACCEPT);
 			chooser.select_multiple = true;
-			FileFilter filter = new FileFilter ();
-			chooser.set_filter (filter);
-			filter.add_mime_type ("application/x-tex");
-			filter.add_mime_type ("application/x-latex");
-			filter.add_mime_type ("application/x-lyx");
-			filter.add_pattern ("*.tex");
-			filter.add_pattern ("*.latex");
-			filter.add_pattern ("*.lyx");
+			chooser.filter = new FileFilter ();
+			chooser.filter.add_mime_type ("application/x-tex");
+			chooser.filter.add_mime_type ("application/x-latex");
+			chooser.filter.add_mime_type ("application/x-lyx");
+			chooser.filter.add_pattern ("*.tex");
+			chooser.filter.add_pattern ("*.latex");
+			chooser.filter.add_pattern ("*.lyx");
 
 			if (chooser.run () == ResponseType.ACCEPT) {
 				var paths = chooser.get_filenames ();
@@ -272,14 +271,13 @@ namespace LAview.Desktop {
 			                                _("_Cancel"), ResponseType.CANCEL,
 			                                _("_Save"), ResponseType.ACCEPT);
 			chooser.select_multiple = false;
-			FileFilter filter = new FileFilter ();
-			chooser.set_filter (filter);
-			filter.add_mime_type ("application/pdf");
-			filter.add_pattern ("*.pdf");
+			chooser.filter = new FileFilter ();
+			chooser.filter.add_mime_type ("application/pdf");
+			chooser.filter.add_pattern ("*.pdf");
 
 			// set folder
 			if (AppCore.settings.pdf_save_path != "")
-				chooser.set_current_folder(AppCore.settings.pdf_save_path);
+				chooser.set_current_folder (AppCore.settings.pdf_save_path);
 
 			// set current pdf file name or select an existance one
 			var template_name = AppCore.core.get_template_path_by_index (indices[0]);
