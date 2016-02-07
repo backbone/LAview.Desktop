@@ -24,5 +24,8 @@ namespace LAview.Desktop {
 			if (File.new_for_path(w32dhack_sdir+"/gschemas.compiled").query_exists ())
 				settings_dir = w32dhack_sdir;
 		}
+
+		public static void terminate () {
+		}
 	}
 }

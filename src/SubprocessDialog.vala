@@ -21,7 +21,7 @@ namespace LAview.Desktop {
 			dialog = builder.get_object ("subprocess_dialog") as Dialog;
 			dialog.transient_for = parent;
 			dialog.modal = true;
-			dialog.application = application;
+			//dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 			textview_stderrout = builder.get_object ("textview_stderrout") as TextView;
 		}
