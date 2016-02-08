@@ -20,7 +20,7 @@ namespace LAview.Desktop {
 			dialog = builder.get_object ("preferences_window") as Dialog;
 			dialog.transient_for = parent;
 			dialog.modal = true;
-			dialog.application = application;
+			//dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 			liststore_data = builder.get_object ("liststore_data") as Gtk.ListStore;
 			liststore_protocols = builder.get_object ("liststore_protocols") as Gtk.ListStore;

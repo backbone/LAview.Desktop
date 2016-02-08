@@ -50,6 +50,13 @@ namespace LAview.Desktop {
 			       flags: ApplicationFlags.FLAGS_NONE);
 		}
 
+		~LAviewDesktopApp () {
+			print ("~LAviewDesktopApp()\n");
+			Resources.terminate ();
+			AppCore.terminate ();
+			AppDirs.terminate ();
+		}
+
 		protected override void activate () {
 			try {
 				main_window = new MainWindow (this);

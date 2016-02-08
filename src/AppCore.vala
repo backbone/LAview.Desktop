@@ -9,5 +9,8 @@ namespace LAview.Desktop {
 			settings = new AppSettings();
 		}
 
+		public static void terminate () {
+			core = null;
+		}
 	}
 }

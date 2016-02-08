@@ -7,5 +7,8 @@ namespace LAview.Desktop {
 			resource = Resource.load (resource_file);
 			resource._register();
 		}
+
+		public static void terminate () {
+		}
 	}
 }

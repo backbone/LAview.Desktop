@@ -321,7 +321,7 @@ namespace LAview.Desktop {
 
 		[CCode (instance_pos = -1)]
 		public void action_quit_activate (Gtk.Action action) {
-			window.application.quit();
+			window.destroy();
 		}
 	}
 }
