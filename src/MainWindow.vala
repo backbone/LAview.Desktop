@@ -242,12 +242,20 @@ namespace LAview.Desktop {
 		public void templates_cursor_changed (Gtk.TreeView treeview) {
 			var indices = get_template_indices ();
 			if (indices.length != 0) {
-				var doc_objects = AppCore.core.get_objects_list (indices[0]);
-				liststore_doc_objects.clear();
-				Gtk.TreeIter iter = Gtk.TreeIter();
-				foreach (var t in doc_objects) {
-					liststore_doc_objects.append (out iter);
-					liststore_doc_objects.set (iter, 0, t);
+				try {
+					var doc_objects = AppCore.core.get_objects_list (indices[0]);
+					liststore_doc_objects.clear();
+					Gtk.TreeIter iter = Gtk.TreeIter();
+					foreach (var t in doc_objects) {
+						liststore_doc_objects.append (out iter);
+						liststore_doc_objects.set (iter, 0, t);
+					}
+				} catch (Error err) {
+					var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
+					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+					msg.response.connect ((response_id) => { msg.destroy (); } );
+					msg.show ();
+					return;
 				}
 			}
 			statusbar_show (_("Document analized, select an object and set it's properties."));

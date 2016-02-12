@@ -51,7 +51,6 @@ namespace LAview.Desktop {
 		}
 
 		~LAviewDesktopApp () {
-			print ("~LAviewDesktopApp()\n");
 			Resources.terminate ();
 			AppCore.terminate ();
 			AppDirs.terminate ();
