@@ -23,7 +23,7 @@ namespace LAview.Desktop {
 			//dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 			liststore_data = builder.get_object ("liststore_data") as Gtk.ListStore;
-			liststore_objects = builder.get_object ("liststore_objects") as Gtk.ListStore;
+			liststore_objects = builder.get_object ("liststore_protocol_objects") as Gtk.ListStore;
 			filechooserbutton_lyx = builder.get_object ("filechooserbutton_lyx") as FileChooserButton;
 			filechooserbutton_pdflatex = builder.get_object ("filechooserbutton_pdflatex") as FileChooserButton;
 

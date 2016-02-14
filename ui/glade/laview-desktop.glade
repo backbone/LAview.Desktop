@@ -125,7 +125,7 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkListStore" id="liststore_protocols">
+  <object class="GtkListStore" id="liststore_protocol_objects">
     <columns>
       <!-- column-name name -->
       <column type="gchararray"/>
@@ -275,16 +275,16 @@
                     <property name="can_focus">True</property>
                     <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkTreeView" id="treeview_protocols">
+                      <object class="GtkTreeView" id="treeview_protocol_objects">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="model">liststore_protocols</property>
+                        <property name="model">liststore_protocol_objects</property>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeview-selection5"/>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn3">
-                            <property name="title" translatable="yes">Protocol Plugins</property>
+                            <property name="title" translatable="yes">Object plugins</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext2"/>
                               <attributes>
@@ -311,7 +311,7 @@
               <object class="GtkLabel" id="label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Protocol plugins</property>
+                <property name="label" translatable="yes">Object plugins</property>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -338,7 +338,7 @@
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn4">
-                            <property name="title" translatable="yes">Data Plugins</property>
+                            <property name="title" translatable="yes">Data plugins</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext3"/>
                               <attributes>
