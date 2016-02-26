@@ -161,14 +161,24 @@ namespace LAview.Desktop {
 			return indices;
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_compose_activate (Gtk.Action action) {
+		void compose_object () {
 			var t_indices = get_template_indices ();
 			var o_indices = get_objects_indices ();
-			if (t_indices.length != 0 && o_indices.length != 0) {
+			if (t_indices.length != 0 && o_indices.length != 0)
 				AppCore.core.compose_object (t_indices[0], o_indices[0]);
-			}
 			statusbar_show (_("After composing all objects print the document."));
+		}
+
+		[CCode (instance_pos = -1)]
+		public void action_compose_activate (Gtk.Action action) {
+			compose_object();
+		}
+
+		[CCode (instance_pos = -1)]
+		public void objects_activated (Gtk.TreeView treeview,
+		                               Gtk.TreePath path,
+		                               Gtk.TreeViewColumn column) {
+			compose_object();
 		}
 
 		[CCode (instance_pos = -1)]
