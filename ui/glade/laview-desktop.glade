@@ -988,6 +988,7 @@
                         <property name="can_focus">True</property>
                         <property name="model">liststore_objects</property>
                         <signal name="cursor-changed" handler="laview_desktop_main_window_objects_cursor_changed" swapped="no"/>
+                        <signal name="row-activated" handler="laview_desktop_main_window_objects_activated" swapped="no"/>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeview-selection_objects"/>
                         </child>
