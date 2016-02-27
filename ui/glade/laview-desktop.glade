@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.19.0 -->
 <interface domain="laview-desktop-@MAJOR@">
   <requires lib="gtk+" version="3.16"/>
   <object class="GtkAboutDialog" id="aboutdialog_window">
@@ -41,67 +41,79 @@
   <object class="GtkActionGroup" id="actiongroup_main">
     <child>
       <object class="GtkAction" id="action_new">
-        <property name="icon_name">drive-optical</property>
+        <property name="stock_id">gtk-new</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_new_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_open">
+        <property name="stock_id">gtk-open</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_open_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_edit_template">
+        <property name="label" translatable="yes">_Template</property>
+        <property name="stock_id">gtk-edit</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_edit_template_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_delete">
+        <property name="stock_id">gtk-delete</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_delete_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_prepare">
+        <property name="stock_id">gtk-properties</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_compose_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_print">
+        <property name="stock_id">gtk-print</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_print_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_ref">
+        <property name="stock_id">gtk-help</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_ref_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_preferences">
+        <property name="stock_id">gtk-preferences</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_preferences_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_edit_result">
+        <property name="label" translatable="yes">_Document</property>
+        <property name="stock_id">gtk-edit</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_edit_result_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_saveas">
+        <property name="stock_id">gtk-save</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_saveas_activate" swapped="no"/>
       </object>
     </child>
     <child>
       <object class="GtkAction" id="action_quit">
+        <property name="stock_id">gtk-quit</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="laview_desktop_main_window_action_quit_activate" swapped="no"/>
       </object>
@@ -125,7 +137,7 @@
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkListStore" id="liststore_protocols">
+  <object class="GtkListStore" id="liststore_protocol_objects">
     <columns>
       <!-- column-name name -->
       <column type="gchararray"/>
@@ -275,16 +287,16 @@
                     <property name="can_focus">True</property>
                     <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkTreeView" id="treeview_protocols">
+                      <object class="GtkTreeView" id="treeview_protocol_objects">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="model">liststore_protocols</property>
+                        <property name="model">liststore_protocol_objects</property>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeview-selection5"/>
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn3">
-                            <property name="title" translatable="yes">Protocol Plugins</property>
+                            <property name="title" translatable="yes">Object plugins</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext2"/>
                               <attributes>
@@ -311,7 +323,7 @@
               <object class="GtkLabel" id="label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Protocol plugins</property>
+                <property name="label" translatable="yes">Object plugins</property>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -338,7 +350,7 @@
                         </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn4">
-                            <property name="title" translatable="yes">Data Plugins</property>
+                            <property name="title" translatable="yes">Data plugins</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext3"/>
                               <attributes>
@@ -425,6 +437,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="n" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -437,6 +450,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="o" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -449,6 +463,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="e" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -461,6 +476,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="Delete" signal="activate"/>
                       </object>
                     </child>
                     <child>
@@ -480,6 +496,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                   </object>
@@ -508,6 +525,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="r" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -520,6 +538,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="p" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -544,6 +563,7 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="s" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                   </object>
@@ -598,6 +618,8 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
+                        <accelerator key="F1" signal="activate"/>
+                        <accelerator key="h" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -630,7 +652,7 @@
             <property name="toolbar_style">both</property>
             <child>
               <object class="GtkToolButton" id="toolbutton_new">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_new</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -645,7 +667,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_open">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_open</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -660,7 +682,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_edit_template">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_edit_template</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -676,7 +698,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_delete">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -701,7 +723,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_prepare">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_prepare</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -716,7 +738,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_print">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -731,7 +753,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_edit_result">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_edit_result</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -747,7 +769,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_saveas">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_saveas</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -772,7 +794,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_preferences">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_preferences</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -787,7 +809,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_ref">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_ref</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -812,7 +834,7 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_quit">
-                <property name="use_action_appearance">False</property>
+                <property name="use_action_appearance">True</property>
                 <property name="related_action">action_quit</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -988,6 +1010,7 @@
                         <property name="can_focus">True</property>
                         <property name="model">liststore_objects</property>
                         <signal name="cursor-changed" handler="laview_desktop_main_window_objects_cursor_changed" swapped="no"/>
+                        <signal name="row-activated" handler="laview_desktop_main_window_objects_activated" swapped="no"/>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeview-selection_objects"/>
                         </child>

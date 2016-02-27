@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-27 04:50+0300\n"
+"POT-Creation-Date: 2016-02-14 15:22+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: Russian\n"
@@ -26,77 +26,69 @@ msgstr "Директория для сохранения pdf файлов (по�
 msgid "It is too lazy to select a directory each time..."
 msgstr "Слишком лениво выбирать каждый раз директорию для сохранения..."
 
-#: src/MainWindow.vala:58
+#: src/MainWindow.vala:64
 msgid "We're ready, Commander! Select or create a template. :-)"
 msgstr "Мы готовы, Командир! Выберите или создайте шаблон. :-)"
 
-#: src/MainWindow.vala:76 src/MainWindow.vala:120 src/MainWindow.vala:194
-#: src/MainWindow.vala:212 src/MainWindow.vala:312
+#: src/MainWindow.vala:82 src/MainWindow.vala:125 src/MainWindow.vala:199
+#: src/MainWindow.vala:217 src/MainWindow.vala:255 src/MainWindow.vala:321
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:90
 msgid "Select templates"
 msgstr "Выберите шаблоны"
 
-#: src/MainWindow.vala:86 src/MainWindow.vala:268
+#: src/MainWindow.vala:92 src/MainWindow.vala:281
 msgid "_Cancel"
 msgstr "_Отмена"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:93
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:171
 msgid "After composing all objects print the document."
 msgstr "После компоновки всех объектов напечатайте документ."
 
-#: src/MainWindow.vala:248
+#: src/MainWindow.vala:261
 msgid "Document analized, select an object and set it's properties."
 msgstr "Документ проанализирован, выберите объект и установите его свойства."
 
-#: src/MainWindow.vala:253
+#: src/MainWindow.vala:266
 msgid "Press 'Properties' button to compose the object."
 msgstr "Нажмите кнопку 'Свойства' для компоновки объекта."
 
-#: src/MainWindow.vala:262
+#: src/MainWindow.vala:275
 msgid "Prepare the document first! >;-]"
 msgstr "Сначала подготовьте документ! >;-]"
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:279
 msgid "Select destination"
 msgstr "Выберите назначение"
 
-#: src/MainWindow.vala:269
+#: src/MainWindow.vala:282
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/MainWindow.vala:305
+#: src/MainWindow.vala:314
 msgid "bytes of"
 msgstr "байт из"
 
-#: src/MainWindow.vala:306
+#: src/MainWindow.vala:315
 msgid "bytes copied/saved"
 msgstr "байт скопировано/сохранено"
 
-#: src/MainWindow.vala:309
+#: src/MainWindow.vala:318
 msgid "Save/Copy operation complete! :-)"
 msgstr "Операция сохранения/копирования завершена! :-)"
 
-#: src/main.vala:33
-msgid "Show the application's version"
-msgstr "Показать версию приложения"
-
-#: src/main.vala:52
-msgid "[FILE]"
-msgstr "[ФАЙЛ]"
-
-#: src/main.vala:64
+#: src/main.vala:64 src/main.vala:83
 #, c-format
 msgid "Error: %s\n"
 msgstr "Ошибка: %s\n"
 
-#: src/main.vala:65
+#: src/main.vala:84
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr "Запустите '%s --help', чтобы увидеть весь список доступных опций.\n"
@@ -138,89 +130,81 @@ msgid "Common"
 msgstr "Общие"
 
 #: ui/glade/laview-desktop.glade.h:10
-msgid "Protocol Plugins"
-msgstr "Плагины протоколов"
+msgid "Object plugins"
+msgstr "Плагины объектов"
 
 #: ui/glade/laview-desktop.glade.h:11
-msgid "Protocol plugins"
-msgstr "Плагины протоколов"
-
-#: ui/glade/laview-desktop.glade.h:12
-msgid "Data Plugins"
-msgstr "Плагины данных"
-
-#: ui/glade/laview-desktop.glade.h:13
 msgid "Data plugins"
 msgstr "Плагины данных"
 
-#: ui/glade/laview-desktop.glade.h:14
+#: ui/glade/laview-desktop.glade.h:12
 msgid "LAview Desktop"
 msgstr "Рабочее окно LAview"
 
-#: ui/glade/laview-desktop.glade.h:15
+#: ui/glade/laview-desktop.glade.h:13
 msgid "_Template"
 msgstr "_Шаблон"
 
-#: ui/glade/laview-desktop.glade.h:16
+#: ui/glade/laview-desktop.glade.h:14
 msgid "_Document"
 msgstr "_Документ"
 
-#: ui/glade/laview-desktop.glade.h:17
+#: ui/glade/laview-desktop.glade.h:15
 msgid "_Application"
 msgstr "_Приложение"
 
-#: ui/glade/laview-desktop.glade.h:18
+#: ui/glade/laview-desktop.glade.h:16
 msgid "_Help"
 msgstr "_Помощь"
 
-#: ui/glade/laview-desktop.glade.h:19
+#: ui/glade/laview-desktop.glade.h:17
 msgid "Create a new template"
 msgstr "Создать новый шаблон"
 
-#: ui/glade/laview-desktop.glade.h:20
+#: ui/glade/laview-desktop.glade.h:18
 msgid "Open a template"
 msgstr "Открыть шаблон"
 
-#: ui/glade/laview-desktop.glade.h:21
+#: ui/glade/laview-desktop.glade.h:19
 msgid "Change selected template"
 msgstr "Изменить выбранный шаблон"
 
-#: ui/glade/laview-desktop.glade.h:22
+#: ui/glade/laview-desktop.glade.h:20
 msgid "Delete selected template"
 msgstr "Удалить выбранный шаблон"
 
-#: ui/glade/laview-desktop.glade.h:23
+#: ui/glade/laview-desktop.glade.h:21
 msgid "Document object preparing"
 msgstr "Подготовка объекта документа"
 
-#: ui/glade/laview-desktop.glade.h:24
+#: ui/glade/laview-desktop.glade.h:22
 msgid "View and print the document"
 msgstr "Просмотр и печать документа"
 
-#: ui/glade/laview-desktop.glade.h:25
+#: ui/glade/laview-desktop.glade.h:23
 msgid "Edit the result document"
 msgstr "Редактировать полученный документ"
 
-#: ui/glade/laview-desktop.glade.h:26
+#: ui/glade/laview-desktop.glade.h:24
 msgid "Save the document as..."
 msgstr "Сохранить документ как..."
 
-#: ui/glade/laview-desktop.glade.h:27
+#: ui/glade/laview-desktop.glade.h:25
 msgid "Application preferences"
 msgstr "Параметры приложения"
 
-#: ui/glade/laview-desktop.glade.h:28
+#: ui/glade/laview-desktop.glade.h:26
 msgid "Help and reference"
 msgstr "Помощь и справка"
 
-#: ui/glade/laview-desktop.glade.h:29
+#: ui/glade/laview-desktop.glade.h:27
 msgid "Close the application"
 msgstr "Закрыть приложение"
 
-#: ui/glade/laview-desktop.glade.h:30
+#: ui/glade/laview-desktop.glade.h:28
 msgid "Templates"
 msgstr "Шаблоны"
 
-#: ui/glade/laview-desktop.glade.h:31
+#: ui/glade/laview-desktop.glade.h:29
 msgid "Document Objects"
 msgstr "Объекты документа"
