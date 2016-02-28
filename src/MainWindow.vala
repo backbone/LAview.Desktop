@@ -193,7 +193,8 @@ namespace LAview.Desktop {
 		void post_print () {
 			var indices = get_template_indices();
 			var pdf_file = AppCore.core.get_pdf_file_path (indices[0]);
-			Utils.open_document (pdf_file, window);
+			if (pdf_file != null && pdf_file != "")
+				Utils.open_document (pdf_file, window);
 		}
 
 		[CCode (instance_pos = -1)]
