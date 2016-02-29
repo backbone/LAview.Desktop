@@ -18,7 +18,7 @@ namespace LAview.Desktop {
 							Process.spawn_async(null, argv, null, SpawnFlags.SEARCH_PATH, null, null);
 						} catch (SpawnError err) {
 							var msg = new MessageDialog (parent_window, DialogFlags.MODAL, MessageType.ERROR,
-							                             ButtonsType.CLOSE, @"Error: $(err.message).");
+							                             ButtonsType.CLOSE, _("Error: ")+err.message);
 							msg.response.connect ((response_id) => { msg.destroy (); } );
 							msg.show ();
 						}

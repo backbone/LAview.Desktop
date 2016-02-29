@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-14 15:22+0300\n"
+"POT-Creation-Date: 2016-03-01 00:18+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: Russian\n"
@@ -26,20 +26,27 @@ msgstr "Директория для сохранения pdf файлов (по�
 msgid "It is too lazy to select a directory each time..."
 msgstr "Слишком лениво выбирать каждый раз директорию для сохранения..."
 
+#: src/MainWindow.vala:31 ui/glade/laview-desktop.glade.h:14
+msgid "LAview Desktop"
+msgstr "Рабочее окно LAview"
+
 #: src/MainWindow.vala:64
 msgid "We're ready, Commander! Select or create a template. :-)"
 msgstr "Мы готовы, Командир! Выберите или создайте шаблон. :-)"
 
-#: src/MainWindow.vala:82 src/MainWindow.vala:125 src/MainWindow.vala:199
-#: src/MainWindow.vala:217 src/MainWindow.vala:255 src/MainWindow.vala:321
-msgid "Error"
-msgstr "Ошибка"
+#: src/MainWindow.vala:82 src/MainWindow.vala:125 src/MainWindow.vala:173
+#: src/MainWindow.vala:201 src/MainWindow.vala:213 src/MainWindow.vala:229
+#: src/MainWindow.vala:247 src/MainWindow.vala:285 src/MainWindow.vala:353
+#: src/SubprocessDialog.vala:43 src/Utils.vala:21 src/main.vala:64
+#: src/main.vala:83
+msgid "Error: "
+msgstr "Ошибка: "
 
 #: src/MainWindow.vala:90
 msgid "Select templates"
 msgstr "Выберите шаблоны"
 
-#: src/MainWindow.vala:92 src/MainWindow.vala:281
+#: src/MainWindow.vala:92 src/MainWindow.vala:313
 msgid "_Cancel"
 msgstr "_Отмена"
 
@@ -47,46 +54,57 @@ msgstr "_Отмена"
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:171
+#: src/MainWindow.vala:170
 msgid "After composing all objects print the document."
 msgstr "После компоновки всех объектов напечатайте документ."
 
-#: src/MainWindow.vala:261
+#: src/MainWindow.vala:225
+msgid "=== Print to PDF file... ===\n"
+msgstr "=== Печать в PDF файл... ===\n"
+
+#: src/MainWindow.vala:291
 msgid "Document analized, select an object and set it's properties."
 msgstr "Документ проанализирован, выберите объект и установите его свойства."
 
-#: src/MainWindow.vala:266
+#: src/MainWindow.vala:296
 msgid "Press 'Properties' button to compose the object."
 msgstr "Нажмите кнопку 'Свойства' для компоновки объекта."
 
-#: src/MainWindow.vala:275
+#: src/MainWindow.vala:307
 msgid "Prepare the document first! >;-]"
 msgstr "Сначала подготовьте документ! >;-]"
 
-#: src/MainWindow.vala:279
+#: src/MainWindow.vala:311
 msgid "Select destination"
 msgstr "Выберите назначение"
 
-#: src/MainWindow.vala:282
+#: src/MainWindow.vala:314
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/MainWindow.vala:314
+#: src/MainWindow.vala:346
 msgid "bytes of"
 msgstr "байт из"
 
-#: src/MainWindow.vala:315
+#: src/MainWindow.vala:347
 msgid "bytes copied/saved"
 msgstr "байт скопировано/сохранено"
 
-#: src/MainWindow.vala:318
+#: src/MainWindow.vala:350
 msgid "Save/Copy operation complete! :-)"
 msgstr "Операция сохранения/копирования завершена! :-)"
 
-#: src/main.vala:64 src/main.vala:83
-#, c-format
-msgid "Error: %s\n"
-msgstr "Ошибка: %s\n"
+#: src/Settings.vala:21
+msgid " not found"
+msgstr " не найден"
+
+#: src/Settings.vala:21
+msgid "File "
+msgstr "Файл "
+
+#: src/SubprocessDialog.vala:38
+msgid "Error running subprocess."
+msgstr "Ошибка запуска подпроцесса."
 
 #: src/main.vala:84
 #, c-format
@@ -110,44 +128,40 @@ msgid "Kolan Sh"
 msgstr "Николай Ш"
 
 #: ui/glade/laview-desktop.glade.h:5
-msgid "LAview Preferences"
-msgstr "Параметры LAview"
-
-#: ui/glade/laview-desktop.glade.h:6
-msgid "Paths"
-msgstr "Пути"
-
-#: ui/glade/laview-desktop.glade.h:7
-msgid "LyX path on Windows"
-msgstr "Путь к LyX под Windows"
-
-#: ui/glade/laview-desktop.glade.h:8
-msgid "pdfLaTeX path on Windows"
-msgstr "Путь к pdfLaTeX под Windows"
-
-#: ui/glade/laview-desktop.glade.h:9
-msgid "Common"
-msgstr "Общие"
-
-#: ui/glade/laview-desktop.glade.h:10
-msgid "Object plugins"
-msgstr "Плагины объектов"
-
-#: ui/glade/laview-desktop.glade.h:11
-msgid "Data plugins"
-msgstr "Плагины данных"
-
-#: ui/glade/laview-desktop.glade.h:12
-msgid "LAview Desktop"
-msgstr "Рабочее окно LAview"
-
-#: ui/glade/laview-desktop.glade.h:13
 msgid "_Template"
 msgstr "_Шаблон"
 
-#: ui/glade/laview-desktop.glade.h:14
+#: ui/glade/laview-desktop.glade.h:6
 msgid "_Document"
 msgstr "_Документ"
+
+#: ui/glade/laview-desktop.glade.h:7
+msgid "LAview Preferences"
+msgstr "Параметры LAview"
+
+#: ui/glade/laview-desktop.glade.h:8
+msgid "Paths"
+msgstr "Пути"
+
+#: ui/glade/laview-desktop.glade.h:9
+msgid "LyX path on Windows"
+msgstr "Путь к LyX под Windows"
+
+#: ui/glade/laview-desktop.glade.h:10
+msgid "pdfLaTeX path on Windows"
+msgstr "Путь к pdfLaTeX под Windows"
+
+#: ui/glade/laview-desktop.glade.h:11
+msgid "Common"
+msgstr "Общие"
+
+#: ui/glade/laview-desktop.glade.h:12
+msgid "Object plugins"
+msgstr "Плагины объектов"
+
+#: ui/glade/laview-desktop.glade.h:13
+msgid "Data plugins"
+msgstr "Плагины данных"
 
 #: ui/glade/laview-desktop.glade.h:15
 msgid "_Application"

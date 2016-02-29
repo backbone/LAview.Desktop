@@ -35,12 +35,12 @@ namespace LAview.Desktop {
 				} catch (IOError err) {
 					assert_not_reached();
 				}
-				if ((sp.wait_check()) == false) throw new IOError.FAILED("Error running subprocess.");
+				if ((sp.wait_check()) == false) throw new IOError.FAILED(_("Error running subprocess."));
 				ppdelegate ();
 				dialog.hide ();
 
 			} catch (Error err) {
-				textview_stderrout.buffer.text += @"Error: $(err.message)";
+				textview_stderrout.buffer.text += _("Error: ")+err.message;
 				if (sp != null) {
 					var ds_err = new DataInputStream(sp.get_stderr_pipe());
 					try {

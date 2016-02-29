@@ -18,7 +18,7 @@ namespace LAview.Desktop {
 			SettingsSchema schema = sss.lookup ("ws.backbone.laview.desktop-"+Config.VERSION_MAJOR.to_string(), false);
 			if (schema == null) {
 				stderr.printf ("ID not found.\n");
-				throw new IOError.NOT_FOUND ("File "+AppDirs.settings_dir+"/gschemas.compiled not found");
+				throw new IOError.NOT_FOUND (_("File ")+AppDirs.settings_dir+"/gschemas.compiled"+_(" not found"));
 			}
 			settings = new Settings.full (schema, null, null);
 

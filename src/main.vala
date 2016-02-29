@@ -61,7 +61,7 @@ namespace LAview.Desktop {
 				main_window = new MainWindow (this);
 				main_window.show_all ();
 			} catch (Error e) {
-				stderr.printf (_("Error: %s\n"), e.message);
+				stderr.puts (_("Error: ")+e.message);
 			}
 		}
 
@@ -80,7 +80,7 @@ namespace LAview.Desktop {
 				return app.run (args);
 
 			} catch (Error e) {
-				stderr.printf (_("Error: %s\n"), e.message);
+				stderr.puts (_("Error: ")+e.message);
 				stderr.printf (_("Run '%s --help' to see a full list of available command line options.\n"), args[0]);
 				return e.code;
 			}

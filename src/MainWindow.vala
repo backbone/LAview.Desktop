@@ -28,7 +28,7 @@ namespace LAview.Desktop {
 			liststore_doc_objects = builder.get_object ("liststore_objects") as Gtk.ListStore;
 			treeview_templates = builder.get_object ("treeview_templates") as TreeView;
 			treeview_objects = builder.get_object ("treeview_objects") as TreeView;
-			window.title = "LAview Desktop"
+			window.title = _("LAview Desktop")
 			        + @" $(Config.VERSION_MAJOR).$(Config.VERSION_MINOR).$(Config.VERSION_PATCH)";
 
 			pref_dialog = new PreferencesDialog (application, window);
@@ -79,7 +79,7 @@ namespace LAview.Desktop {
 				subprocess.spawnv(argv);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -122,7 +122,7 @@ namespace LAview.Desktop {
 				subprocess.spawnv(args);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -170,7 +170,7 @@ namespace LAview.Desktop {
 				statusbar_show (_("After composing all objects print the document."));
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -198,7 +198,7 @@ namespace LAview.Desktop {
 				}
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -210,7 +210,7 @@ namespace LAview.Desktop {
 				Utils.open_document (AppCore.core.get_pdf_file_path (indices[0]), window);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -222,11 +222,11 @@ namespace LAview.Desktop {
 			if (indices.length != 0) {
 				try {
 					subprocess_dialog.show_all (AppCore.core.print_document (indices[0]),
-					                            "=== Print to PDF file... ===\n",
+					                            _("=== Print to PDF file... ===\n"),
 					                            post_print);
 				} catch (Error err) {
 					var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+					                             ButtonsType.CLOSE, _("Error: ")+err.message);
 					msg.response.connect ((response_id) => { msg.destroy (); } );
 					msg.show ();
 				}
@@ -244,7 +244,7 @@ namespace LAview.Desktop {
 				show_uri (null, "https://redmine.backbone.ws/projects/laview/wiki", Gdk.CURRENT_TIME);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-				                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
 				msg.response.connect ((response_id) => { msg.destroy (); } );
 				msg.show ();
 			}
@@ -282,7 +282,7 @@ namespace LAview.Desktop {
 					}
 				} catch (Error err) {
 					var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+					                             ButtonsType.CLOSE, _("Error: ")+err.message);
 					msg.response.connect ((response_id) => { msg.destroy (); } );
 					msg.show ();
 					return;
@@ -350,7 +350,7 @@ namespace LAview.Desktop {
 					statusbar_show (_("Save/Copy operation complete! :-)"));
 				} catch (Error err) {
 					var msg = new MessageDialog (chooser, DialogFlags.MODAL, MessageType.ERROR,
-					                             ButtonsType.CLOSE, _("Error")+@": $(err.message).");
+					                             ButtonsType.CLOSE, _("Error: ")+err.message);
 					msg.response.connect ((response_id) => { msg.destroy (); chooser.close (); } );
 					msg.show ();
 				}
