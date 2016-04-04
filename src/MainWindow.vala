@@ -166,7 +166,7 @@ namespace LAview.Desktop {
 				var t_indices = get_template_indices ();
 				var o_indices = get_objects_indices ();
 				if (t_indices.length != 0 && o_indices.length != 0)
-					AppCore.core.compose_object (t_indices[0], o_indices[0]);
+					AppCore.core.compose_object (window, t_indices[0], o_indices[0]);
 				statusbar_show (_("After composing all objects print the document."));
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
