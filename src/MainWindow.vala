@@ -165,9 +165,12 @@ namespace LAview.Desktop {
 			try {
 				var t_indices = get_template_indices ();
 				var o_indices = get_objects_indices ();
-				if (t_indices.length != 0 && o_indices.length != 0)
+				if (t_indices.length != 0 && o_indices.length != 0) {
 					AppCore.core.compose_object (window, t_indices[0], o_indices[0]);
-				statusbar_show (_("After composing all objects print the document."));
+					statusbar_show (_("After composing all objects print the document."));
+				} else {
+					statusbar_show (_("Select an object first."));
+				}
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
 				                             ButtonsType.CLOSE, _("Error: ")+err.message);

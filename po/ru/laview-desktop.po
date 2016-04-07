@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-01 00:18+0300\n"
+"POT-Creation-Date: 2016-04-08 02:06+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: Russian\n"
@@ -34,9 +34,9 @@ msgstr "Рабочее окно LAview"
 msgid "We're ready, Commander! Select or create a template. :-)"
 msgstr "Мы готовы, Командир! Выберите или создайте шаблон. :-)"
 
-#: src/MainWindow.vala:82 src/MainWindow.vala:125 src/MainWindow.vala:173
-#: src/MainWindow.vala:201 src/MainWindow.vala:213 src/MainWindow.vala:229
-#: src/MainWindow.vala:247 src/MainWindow.vala:285 src/MainWindow.vala:353
+#: src/MainWindow.vala:82 src/MainWindow.vala:125 src/MainWindow.vala:176
+#: src/MainWindow.vala:204 src/MainWindow.vala:216 src/MainWindow.vala:232
+#: src/MainWindow.vala:250 src/MainWindow.vala:288 src/MainWindow.vala:356
 #: src/SubprocessDialog.vala:43 src/Utils.vala:21 src/main.vala:64
 #: src/main.vala:83
 msgid "Error: "
@@ -46,7 +46,7 @@ msgstr "Ошибка: "
 msgid "Select templates"
 msgstr "Выберите шаблоны"
 
-#: src/MainWindow.vala:92 src/MainWindow.vala:313
+#: src/MainWindow.vala:92 src/MainWindow.vala:316
 msgid "_Cancel"
 msgstr "_Отмена"
 
@@ -58,39 +58,43 @@ msgstr "_Открыть"
 msgid "After composing all objects print the document."
 msgstr "После компоновки всех объектов напечатайте документ."
 
-#: src/MainWindow.vala:225
+#: src/MainWindow.vala:172
+msgid "Select an object first."
+msgstr "Сначала выберите объект."
+
+#: src/MainWindow.vala:228
 msgid "=== Print to PDF file... ===\n"
 msgstr "=== Печать в PDF файл... ===\n"
 
-#: src/MainWindow.vala:291
+#: src/MainWindow.vala:294
 msgid "Document analized, select an object and set it's properties."
 msgstr "Документ проанализирован, выберите объект и установите его свойства."
 
-#: src/MainWindow.vala:296
+#: src/MainWindow.vala:299
 msgid "Press 'Properties' button to compose the object."
 msgstr "Нажмите кнопку 'Свойства' для компоновки объекта."
 
-#: src/MainWindow.vala:307
+#: src/MainWindow.vala:310
 msgid "Prepare the document first! >;-]"
 msgstr "Сначала подготовьте документ! >;-]"
 
-#: src/MainWindow.vala:311
+#: src/MainWindow.vala:314
 msgid "Select destination"
 msgstr "Выберите назначение"
 
-#: src/MainWindow.vala:314
+#: src/MainWindow.vala:317
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/MainWindow.vala:346
+#: src/MainWindow.vala:349
 msgid "bytes of"
 msgstr "байт из"
 
-#: src/MainWindow.vala:347
+#: src/MainWindow.vala:350
 msgid "bytes copied/saved"
 msgstr "байт скопировано/сохранено"
 
-#: src/MainWindow.vala:350
+#: src/MainWindow.vala:353
 msgid "Save/Copy operation complete! :-)"
 msgstr "Операция сохранения/копирования завершена! :-)"
 
