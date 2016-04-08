@@ -167,6 +167,7 @@ namespace LAview.Desktop {
 				var o_indices = get_objects_indices ();
 				if (t_indices.length != 0 && o_indices.length != 0) {
 					AppCore.core.compose_object (window, t_indices[0], o_indices[0]);
+					fill_objects_list ();
 					statusbar_show (_("After composing all objects print the document."));
 				} else {
 					statusbar_show (_("Select an object first."));
@@ -271,26 +272,31 @@ namespace LAview.Desktop {
 			edit_selected_templates ();
 		}
 
-		[CCode (instance_pos = -1)]
-		public void templates_cursor_changed (Gtk.TreeView treeview) {
+		void fill_objects_list () throws Error {
+			liststore_doc_objects.clear();
 			var indices = get_template_indices ();
 			if (indices.length != 0) {
-				try {
-					var doc_objects = AppCore.core.get_objects_list (indices[0]);
-					liststore_doc_objects.clear();
-					Gtk.TreeIter iter = Gtk.TreeIter();
-					foreach (var t in doc_objects) {
-						liststore_doc_objects.append (out iter);
-						liststore_doc_objects.set (iter, 0, t);
-					}
-				} catch (Error err) {
-					var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
-					                             ButtonsType.CLOSE, _("Error: ")+err.message);
-					msg.response.connect ((response_id) => { msg.destroy (); } );
-					msg.show ();
-					return;
+				var doc_objects = AppCore.core.get_objects_list (indices[0]);
+				Gtk.TreeIter iter = Gtk.TreeIter();
+				foreach (var t in doc_objects) {
+					liststore_doc_objects.append (out iter);
+					liststore_doc_objects.set (iter, 0, t);
 				}
 			}
+		}
+
+		[CCode (instance_pos = -1)]
+		public void templates_cursor_changed (Gtk.TreeView treeview) {
+			try {
+				fill_objects_list ();
+			} catch (Error err) {
+				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
+				                             ButtonsType.CLOSE, _("Error: ")+err.message);
+				msg.response.connect ((response_id) => { msg.destroy (); } );
+				msg.show ();
+				return;
+			}
+
 			statusbar_show (_("Document analized, select an object and set it's properties."));
 		}
 
