@@ -168,6 +168,14 @@ namespace LAview.Desktop {
 				if (t_indices.length != 0 && o_indices.length != 0) {
 					AppCore.core.compose_object (window, t_indices[0], o_indices[0]);
 					fill_objects_list ();
+
+					TreeIter iter;
+					if (treeview_objects.model.get_iter_first(out iter)) {
+						for (var i = 0; i < o_indices[0]; ++i)
+							treeview_objects.model.iter_next (ref iter);
+						treeview_objects.get_selection ().select_iter (iter);
+					}
+
 					statusbar_show (_("After composing all objects print the document."));
 				} else {
 					statusbar_show (_("Select an object first."));
