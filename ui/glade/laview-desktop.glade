@@ -165,6 +165,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
+                <property name="always_show_image">True</property>
                 <signal name="clicked" handler="laview_desktop_preferences_dialog_button_close_clicked" swapped="no"/>
               </object>
               <packing>
@@ -618,8 +619,8 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
-                        <accelerator key="F1" signal="activate"/>
                         <accelerator key="h" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <accelerator key="F1" signal="activate"/>
                       </object>
                     </child>
                     <child>
