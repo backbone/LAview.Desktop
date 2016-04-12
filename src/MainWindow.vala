@@ -163,10 +163,9 @@ namespace LAview.Desktop {
 
 		void compose_object () {
 			try {
-				var t_indices = get_template_indices ();
 				var o_indices = get_objects_indices ();
-				if (t_indices.length != 0 && o_indices.length != 0) {
-					AppCore.core.compose_object (window, t_indices[0], o_indices[0]);
+				if (get_template_indices().length != 0 && o_indices.length != 0) {
+					AppCore.core.compose_object (window, o_indices[0]);
 					fill_objects_list ();
 
 					TreeIter iter;
@@ -203,9 +202,8 @@ namespace LAview.Desktop {
 		[CCode (instance_pos = -1)]
 		public void action_edit_result_activate (Gtk.Action action) {
 			try {
-				var indices = get_template_indices();
-				if (indices.length != 0) {
-					var lyx_path = AppCore.core.get_lyx_file_path (indices[0]);
+				if (get_template_indices().length != 0) {
+					var lyx_path = AppCore.core.get_lyx_file_path ();
 					edit_lyx_files ({ lyx_path });
 				}
 			} catch (Error err) {
@@ -218,8 +216,7 @@ namespace LAview.Desktop {
 
 		void post_print () {
 			try {
-				var indices = get_template_indices();
-				Utils.open_document (AppCore.core.get_pdf_file_path (indices[0]), window);
+				Utils.open_document (AppCore.core.get_pdf_file_path (), window);
 			} catch (Error err) {
 				var msg = new MessageDialog (window, DialogFlags.MODAL, MessageType.ERROR,
 				                             ButtonsType.CLOSE, _("Error: ")+err.message);
@@ -230,10 +227,9 @@ namespace LAview.Desktop {
 
 		[CCode (instance_pos = -1)]
 		public void action_print_activate (Gtk.Action action) {
-			var indices = get_template_indices();
-			if (indices.length != 0) {
+			if (get_template_indices().length != 0) {
 				try {
-					subprocess_dialog.show_all (AppCore.core.print_document (indices[0]),
+					subprocess_dialog.show_all (AppCore.core.print_document (),
 					                            _("=== Print to PDF file... ===\n"),
 					                            post_print);
 				} catch (Error err) {
@@ -319,7 +315,7 @@ namespace LAview.Desktop {
 			if (indices.length == 0) return;
 			string tmp_pdf = "";
 			try {
-				tmp_pdf = AppCore.core.get_pdf_file_path (indices[0]);
+				tmp_pdf = AppCore.core.get_pdf_file_path ();
 			} catch (Error err) {
 				statusbar_show (_("Prepare the document first! >;-]"));
 				return;
