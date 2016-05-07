@@ -7,6 +7,7 @@ namespace LAview.Desktop {
 	 */
 	public class SubprocessDialog {
 		Dialog dialog;
+		ScrolledWindow scrolled_window;
 		TextView textview_stderrout;
 		Subprocess sp;
 		unowned PostProcessDelegate ppdelegate;
@@ -24,14 +25,23 @@ namespace LAview.Desktop {
 			//dialog.application = application;
 			dialog.delete_event.connect ((source) => {return true;});
 			textview_stderrout = builder.get_object ("textview_stderrout") as TextView;
+			scrolled_window = builder.get_object ("subprocess_scroll") as ScrolledWindow;
+		}
+
+		void scroll_down () {
+			var vadjustment = scrolled_window.get_vadjustment ();
+			vadjustment.value = vadjustment.upper;
+			scrolled_window.set_vadjustment (vadjustment);
 		}
 
 		async void subprocess_async () {
 			try {
 				var ds_out = new DataInputStream(sp.get_stdout_pipe());
 				try {
-					for (string s = yield ds_out.read_line_async(); s != null; s = yield ds_out.read_line_async())
+					for (string s = yield ds_out.read_line_async(); s != null; s = yield ds_out.read_line_async()) {
 						textview_stderrout.buffer.text += s + "\n";
+						scroll_down ();
+					}
 				} catch (IOError err) {
 					assert_not_reached();
 				}
@@ -41,11 +51,14 @@ namespace LAview.Desktop {
 
 			} catch (Error err) {
 				textview_stderrout.buffer.text += _("Error: ")+err.message;
+				scroll_down ();
 				if (sp != null) {
 					var ds_err = new DataInputStream(sp.get_stderr_pipe());
 					try {
-						for (string s = yield ds_err.read_line_async(); s != null; s = yield ds_err.read_line_async())
+						for (string s = yield ds_err.read_line_async(); s != null; s = yield ds_err.read_line_async()) {
 							textview_stderrout.buffer.text += s + "\n";
+							scroll_down ();
+						}
 					} catch (IOError err) {
 						assert_not_reached();
 					}
