@@ -231,7 +231,7 @@
                       <object class="GtkLabel" id="label6">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">pdfLaTeX path on Windows</property>
+                        <property name="label" translatable="yes">LaTeXmk path on Windows</property>
                         <property name="xalign">0</property>
                       </object>
                       <packing>
@@ -252,11 +252,11 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkFileChooserButton" id="filechooserbutton_pdflatex">
+                      <object class="GtkFileChooserButton" id="filechooserbutton_latexmk">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="hexpand">True</property>
-                        <signal name="file-set" handler="laview_desktop_preferences_dialog_pdflatex_file_set" swapped="no"/>
+                        <signal name="file-set" handler="laview_desktop_preferences_dialog_latexmk_file_set" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>

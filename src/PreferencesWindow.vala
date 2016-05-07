@@ -10,7 +10,7 @@ namespace LAview.Desktop {
 		Gtk.ListStore liststore_data;
 		Gtk.ListStore liststore_objects;
 		FileChooserButton filechooserbutton_lyx;
-		FileChooserButton filechooserbutton_pdflatex;
+		FileChooserButton filechooserbutton_latexmk;
 
 		public PreferencesDialog (Gtk.Application application, Window parent) throws Error {
 			var builder = new Builder ();
@@ -25,13 +25,13 @@ namespace LAview.Desktop {
 			liststore_data = builder.get_object ("liststore_data") as Gtk.ListStore;
 			liststore_objects = builder.get_object ("liststore_protocol_objects") as Gtk.ListStore;
 			filechooserbutton_lyx = builder.get_object ("filechooserbutton_lyx") as FileChooserButton;
-			filechooserbutton_pdflatex = builder.get_object ("filechooserbutton_pdflatex") as FileChooserButton;
+			filechooserbutton_latexmk = builder.get_object ("filechooserbutton_latexmk") as FileChooserButton;
 
 			fill_liststore_data ();
 			fill_liststore_objects ();
 
 			filechooserbutton_lyx.set_filename (AppCore.core.lyx_path);
-			filechooserbutton_pdflatex.set_filename (AppCore.core.pdflatex_path);
+			filechooserbutton_latexmk.set_filename (AppCore.core.latexmk_path);
 		}
 
 		void fill_liststore_data () {
@@ -67,8 +67,8 @@ namespace LAview.Desktop {
 		}
 
 		[CCode (instance_pos = -1)]
-		public void pdflatex_file_set (FileChooserButton chooser) {
-			AppCore.core.pdflatex_path = chooser.get_filename ();
+		public void latexmk_file_set (FileChooserButton chooser) {
+			AppCore.core.latexmk_path = chooser.get_filename ();
 		}
 	}
 }
