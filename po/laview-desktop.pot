@@ -151,7 +151,7 @@ msgid "LyX path on Windows"
 msgstr ""
 
 #: ui/glade/laview-desktop.glade.h:10
-msgid "pdfLaTeX path on Windows"
+msgid "LaTeXmk path on Windows"
 msgstr ""
 
 #: ui/glade/laview-desktop.glade.h:11
