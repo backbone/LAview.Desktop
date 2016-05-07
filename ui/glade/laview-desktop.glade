@@ -619,8 +619,8 @@
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
-                        <accelerator key="h" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                         <accelerator key="F1" signal="activate"/>
+                        <accelerator key="h" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                     <child>
@@ -1188,7 +1188,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkScrolledWindow" id="scrolledwindow3">
+          <object class="GtkScrolledWindow" id="subprocess_scroll">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="shadow_type">in</property>
