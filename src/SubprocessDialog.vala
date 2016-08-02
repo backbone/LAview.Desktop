@@ -50,7 +50,7 @@ namespace LAview.Desktop {
 				dialog.hide ();
 
 			} catch (Error err) {
-				textview_stderrout.buffer.text += _("Error: ")+err.message;
+				textview_stderrout.buffer.text += _("Error: ")+err.message+"\n";
 				scroll_down ();
 				if (sp != null) {
 					var ds_err = new DataInputStream(sp.get_stderr_pipe());

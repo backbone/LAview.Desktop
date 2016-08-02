@@ -80,7 +80,7 @@ namespace LAview.Desktop {
 				return app.run (args);
 
 			} catch (Error e) {
-				stderr.puts (_("Error: ")+e.message);
+				stderr.puts (_("Error: ")+e.message+"\n");
 				stderr.printf (_("Run '%s --help' to see a full list of available command line options.\n"), args[0]);
 				return e.code;
 			}
