@@ -10,6 +10,7 @@ SET (MINOR 1)
 SET (PATCH 5)
 
 LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/backbone)
+LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/backbone/override/nsis.installoptions)
 
 ADD_SUBDIRECTORY (config)
 ADD_SUBDIRECTORY (src)
