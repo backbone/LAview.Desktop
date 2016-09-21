@@ -46,6 +46,16 @@ namespace LAview.Desktop {
 
 		void fill_liststore_templates () {
 			var templates = AppCore.core.get_templates_readable_names ();
+
+			// #124 if core doesn't contain any templates then try adding an example template
+			var ex_templ_path = Path.build_path (Path.DIR_SEPARATOR_S, AppDirs.common_dir.get_path(),
+			                                     "share/laview-core-0/templates/example.lyx");
+			if (0 == templates.length && File.new_for_path(ex_templ_path).query_exists()) {
+				AppCore.core.add_template (ex_templ_path);
+				templates = AppCore.core.get_templates_readable_names ();
+			}
+
+
 			liststore_templates.clear();
 			Gtk.TreeIter iter = Gtk.TreeIter();
 			foreach (var t in templates) {
