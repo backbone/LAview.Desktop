@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-23 23:02+0300\n"
+"POT-Creation-Date: 2016-09-27 16:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,84 +25,84 @@ msgstr ""
 msgid "It is too lazy to select a directory each time..."
 msgstr ""
 
-#: src/MainWindow.vala:31 ui/glade/laview-desktop.glade.h:15
+#: src/MainWindow.vala:31 ui/glade/laview-desktop.glade.h:16
 msgid "LAview Desktop"
 msgstr ""
 
-#: src/MainWindow.vala:64
+#: src/MainWindow.vala:78
 msgid "We're ready, Commander! Select or create a template. :-)"
 msgstr ""
 
-#: src/MainWindow.vala:82 src/MainWindow.vala:125 src/MainWindow.vala:184
-#: src/MainWindow.vala:211 src/MainWindow.vala:222 src/MainWindow.vala:237
-#: src/MainWindow.vala:255 src/MainWindow.vala:298 src/MainWindow.vala:366
+#: src/MainWindow.vala:96 src/MainWindow.vala:139 src/MainWindow.vala:198
+#: src/MainWindow.vala:225 src/MainWindow.vala:236 src/MainWindow.vala:251
+#: src/MainWindow.vala:269 src/MainWindow.vala:312 src/MainWindow.vala:380
 #: src/SubprocessDialog.vala:53 src/Utils.vala:21 src/main.vala:64
 #: src/main.vala:83
 msgid "Error: "
 msgstr ""
 
-#: src/MainWindow.vala:90
+#: src/MainWindow.vala:104
 msgid "Select templates"
 msgstr ""
 
-#: src/MainWindow.vala:92 src/MainWindow.vala:326
+#: src/MainWindow.vala:106 src/MainWindow.vala:340
 msgid "_Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:93
+#: src/MainWindow.vala:107
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:192
 msgid "After composing all objects print the document."
 msgstr ""
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:194
 msgid "Select an object first."
 msgstr ""
 
-#: src/MainWindow.vala:233
+#: src/MainWindow.vala:247
 msgid "=== Print to PDF file... ===\n"
 msgstr ""
 
-#: src/MainWindow.vala:304
+#: src/MainWindow.vala:318
 msgid "Document analized, select an object and set it's properties."
 msgstr ""
 
-#: src/MainWindow.vala:309
+#: src/MainWindow.vala:323
 msgid "Press 'Properties' button to compose the object."
 msgstr ""
 
-#: src/MainWindow.vala:320
+#: src/MainWindow.vala:334
 msgid "Prepare the document first! >;-]"
 msgstr ""
 
-#: src/MainWindow.vala:324
+#: src/MainWindow.vala:338
 msgid "Select destination"
 msgstr ""
 
-#: src/MainWindow.vala:327
+#: src/MainWindow.vala:341
 msgid "_Save"
 msgstr ""
 
-#: src/MainWindow.vala:359
+#: src/MainWindow.vala:373
 msgid "bytes of"
 msgstr ""
 
-#: src/MainWindow.vala:360
+#: src/MainWindow.vala:374
 msgid "bytes copied/saved"
 msgstr ""
 
-#: src/MainWindow.vala:363
+#: src/MainWindow.vala:377
 msgid "Save/Copy operation complete! :-)"
 msgstr ""
 
-#: src/Settings.vala:21
-msgid " not found"
+#: src/PreferencesWindow.vala:117
+msgid "Not all paths found."
 msgstr ""
 
-#: src/Settings.vala:21
-msgid "File "
+#: src/PreferencesWindow.vala:117
+msgid "Warning: "
 msgstr ""
 
 #: src/SubprocessDialog.vala:48
@@ -159,73 +159,77 @@ msgid "Perl path on Windows"
 msgstr ""
 
 #: ui/glade/laview-desktop.glade.h:12
-msgid "Common"
+msgid "Auto recognition"
 msgstr ""
 
 #: ui/glade/laview-desktop.glade.h:13
-msgid "Object plugins"
+msgid "Common"
 msgstr ""
 
 #: ui/glade/laview-desktop.glade.h:14
+msgid "Object plugins"
+msgstr ""
+
+#: ui/glade/laview-desktop.glade.h:15
 msgid "Data plugins"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:16
+#: ui/glade/laview-desktop.glade.h:17
 msgid "_Application"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:17
+#: ui/glade/laview-desktop.glade.h:18
 msgid "_Help"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:18
+#: ui/glade/laview-desktop.glade.h:19
 msgid "Create a new template"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:19
+#: ui/glade/laview-desktop.glade.h:20
 msgid "Open a template"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:20
+#: ui/glade/laview-desktop.glade.h:21
 msgid "Change selected template"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:21
+#: ui/glade/laview-desktop.glade.h:22
 msgid "Delete selected template"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:22
+#: ui/glade/laview-desktop.glade.h:23
 msgid "Document object preparing"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:23
+#: ui/glade/laview-desktop.glade.h:24
 msgid "View and print the document"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:24
+#: ui/glade/laview-desktop.glade.h:25
 msgid "Edit the result document"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:25
+#: ui/glade/laview-desktop.glade.h:26
 msgid "Save the document as..."
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:26
+#: ui/glade/laview-desktop.glade.h:27
 msgid "Application preferences"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:27
+#: ui/glade/laview-desktop.glade.h:28
 msgid "Help and reference"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:28
+#: ui/glade/laview-desktop.glade.h:29
 msgid "Close the application"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:29
+#: ui/glade/laview-desktop.glade.h:30
 msgid "Templates"
 msgstr ""
 
-#: ui/glade/laview-desktop.glade.h:30
+#: ui/glade/laview-desktop.glade.h:31
 msgid "Document Objects"
 msgstr ""
