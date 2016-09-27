@@ -35,6 +35,10 @@ namespace LAview.Desktop {
 			subprocess_dialog = new SubprocessDialog (application, window);
 			about_dialog = new AboutDialogWindow (application, window);
 
+			#if (WINDOWS)
+				check_paths ();
+			#endif
+
 			fill_liststore_templates ();
 
 			application.app_menu = builder.get_object ("menubar") as MenuModel;
@@ -385,6 +389,16 @@ namespace LAview.Desktop {
 		[CCode (instance_pos = -1)]
 		public void action_quit_activate (Gtk.Action action) {
 			window.destroy();
+		}
+
+		void check_paths () {
+			bool all_paths_exist = true;
+			string[] paths1 = {AppCore.core.lyx_path, AppCore.core.latexmk_pl_path, AppCore.core.perl_path};
+			foreach (var path in paths1) {
+				if (!File.new_for_path(path).query_exists())
+					all_paths_exist = false;
+			}
+			if (!all_paths_exist) pref_dialog.show_all ();
 		}
 	}
 }
