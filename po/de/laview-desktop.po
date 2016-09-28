@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-desktop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-27 16:48+0300\n"
+"POT-Creation-Date: 2016-09-28 16:26+0300\n"
 "PO-Revision-Date: 2015-10-24 20:19+0300\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: German\n"
@@ -97,11 +97,15 @@ msgstr ""
 msgid "Save/Copy operation complete! :-)"
 msgstr ""
 
-#: src/PreferencesWindow.vala:117
+#: src/PreferencesWindow.vala:87
+msgid "You are on Unix, bro! :-)"
+msgstr ""
+
+#: src/PreferencesWindow.vala:164
 msgid "Not all paths found."
 msgstr ""
 
-#: src/PreferencesWindow.vala:117
+#: src/PreferencesWindow.vala:164
 msgid "Warning: "
 msgstr ""
 
