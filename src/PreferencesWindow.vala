@@ -78,5 +78,94 @@ namespace LAview.Desktop {
 		public void perl_file_set (FileChooserButton chooser) {
 			AppCore.core.perl_path = chooser.get_filename ();
 		}
+
+		[CCode (instance_pos = -1)]
+		public void button_search_clicked (Button button) {
+
+			#if (UNIX)
+				var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.INFO,
+				                             ButtonsType.CLOSE, _("You are on Unix, bro! :-)"));
+				msg.response.connect ((response_id) => { msg.destroy (); } );
+				msg.show ();
+			#elif (WINDOWS)
+				if (!File.new_for_path(AppCore.core.lyx_path).query_exists()) {
+					string[] lyx_dirs = { "c:\\Program Files", "c:\\Program Files (x86)",
+					                      "c:\\msys64\\mingw64", "c:\\msys64\\mingw32" };
+					try {
+						foreach (var directory in lyx_dirs) {
+							Dir dir = Dir.open (directory, 0);
+							string? name = null;
+
+							while ((name = dir.read_name()) != null) {
+								if (/^(lyx|mingw)/i.match(name)) {
+									var lyx_path = directory+"\\"+name+"\\bin\\lyx.exe";
+									if (File.new_for_path(lyx_path).query_exists()) {
+										filechooserbutton_lyx.set_filename (lyx_path);
+										AppCore.core.lyx_path = lyx_path;
+										break;
+									} else {
+										name = null;
+									}
+								} else {
+									name = null;
+								}
+							}
+							if (name != null) break;
+						}
+					} catch (FileError err) {
+					}
+				}
+
+				if (!File.new_for_path(AppCore.core.latexmk_pl_path).query_exists()) {
+					string[] latexmk_pl_dirs = { "c:\\Program Files", "c:\\Program Files (x86)",
+					                             "c:\\", "c:\\texlive" };
+					try {
+						foreach (var directory in latexmk_pl_dirs) {
+							Dir dir = Dir.open (directory, 0);
+							string? name = null;
+
+							while ((name = dir.read_name()) != null) {
+								if (/^(miktex|20[0-9][0-9])/i.match(name)) {
+									string[] suffixes = { "scripts\\latexmk\\perl\\latexmk.pl",
+									                      "texmkf-dist\\scripts\\latexmk\\latexmk.pl" };
+									foreach (var suffix in suffixes) {
+										var latexmk_pl_path = directory+"\\"+name+"\\"+suffix;
+										if (File.new_for_path(latexmk_pl_path).query_exists()) {
+											filechooserbutton_latexmk.set_filename (latexmk_pl_path);
+											AppCore.core.latexmk_pl_path = latexmk_pl_path;
+											break;
+										} else {
+											name = null;
+										}
+									}
+									if (name != null) break;
+								} else {
+									name = null;
+								}
+							}
+							if (name != null) break;
+						}
+					} catch (FileError err) {
+					}
+				}
+
+				if (!File.new_for_path(AppCore.core.perl_path).query_exists()) {
+					var path = AppDirs.exec_dir.get_path() + "\\perl.exe";
+					if (File.new_for_path(path).query_exists()) {
+						filechooserbutton_perl.set_filename (path);
+						AppCore.core.perl_path = path;
+					}
+				}
+
+				if (   !File.new_for_path(AppCore.core.lyx_path).query_exists()
+				    || !File.new_for_path(AppCore.core.latexmk_pl_path).query_exists()
+				    || !File.new_for_path(AppCore.core.perl_path).query_exists()) {
+						var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.WARNING,
+						                             ButtonsType.CLOSE, _("Warning: ")+_("Not all paths found."));
+						msg.response.connect ((response_id) => { msg.destroy (); } );
+						msg.show ();
+				}
+			#endif
+		}
 	}
 }
