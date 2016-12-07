@@ -1,6 +1,6 @@
 [CCode (cheader_filename = "config.h")]
 namespace Config {
-	static const int VERSION_MAJOR;
-	static const int VERSION_MINOR;
-	static const int VERSION_PATCH;
+	const int VERSION_MAJOR;
+	const int VERSION_MINOR;
+	const int VERSION_PATCH;
 }
