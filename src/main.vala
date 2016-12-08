@@ -1,4 +1,6 @@
-extern const string GETTEXT_PACKAGE;
+namespace Gettext {
+	extern const string PACKAGE;
+}
 
 namespace LAview.Desktop {
 
@@ -70,11 +72,11 @@ namespace LAview.Desktop {
 				AppDirs.init (args);
 				AppCore.init (args);
 				Resources.init (args);
-				//Gtk.init_with_args (ref args, _("[FILE]"), CommandlineOptions.get_options (), GETTEXT_PACKAGE);
+				//Gtk.init_with_args (ref args, _("[FILE]"), CommandlineOptions.get_options (), Gettext.PACKAGE);
 
 				// Internationalization
-				Intl.bindtextdomain (GETTEXT_PACKAGE, AppDirs.locale_dir);
-				Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+				Intl.bindtextdomain (Gettext.PACKAGE, AppDirs.locale_dir);
+				Intl.bind_textdomain_codeset (Gettext.PACKAGE, "UTF-8");
 
 				var app = new LAviewDesktopApp ();
 				return app.run (args);
