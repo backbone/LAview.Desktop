@@ -31,6 +31,42 @@ namespace LAview.Desktop {
 			window.title = _("LAview Desktop")
 			        + @" $(Config.VERSION_MAJOR).$(Config.VERSION_MINOR).$(Config.VERSION_PATCH)";
 
+			/* actions */
+			var new_action = new SimpleAction ("new", null);
+			new_action.activate.connect (new_callback);
+			application.add_action (new_action);
+			var open_action = new SimpleAction ("open", null);
+			open_action.activate.connect (open_callback);
+			application.add_action (open_action);
+			var edit_action = new SimpleAction ("edit", null);
+			edit_action.activate.connect (edit_callback);
+			application.add_action (edit_action);
+			var delete_action = new SimpleAction ("delete", null);
+			delete_action.activate.connect (delete_callback);
+			application.add_action (delete_action);
+			var compose_action = new SimpleAction ("compose", null);
+			compose_action.activate.connect (compose_callback);
+			application.add_action (compose_action);
+			var print_action = new SimpleAction ("print", null);
+			print_action.activate.connect (print_callback);
+			application.add_action (print_action);
+			var edit_result_action = new SimpleAction ("edit_result", null);
+			edit_result_action.activate.connect (edit_result_callback);
+			application.add_action (edit_result_action);
+			var saveas_action = new SimpleAction ("saveas", null);
+			saveas_action.activate.connect (saveas_callback);
+			application.add_action (saveas_action);
+			var quit_action = new SimpleAction ("quit", null);
+			quit_action.activate.connect (quit_callback);
+			application.add_action (quit_action);
+			var ref_action = new SimpleAction ("ref", null);
+			ref_action.activate.connect (ref_callback);
+			application.add_action (ref_action);
+			var preferences_action = new SimpleAction ("preferences", null);
+			preferences_action.activate.connect (preferences_callback);
+			application.add_action (preferences_action);
+
+
 			pref_dialog = new PreferencesDialog (application, window);
 			subprocess_dialog = new SubprocessDialog (application, window);
 			about_dialog = new AboutDialogWindow (application, window);
@@ -83,8 +119,7 @@ namespace LAview.Desktop {
 			about_dialog.show_all ();
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_new_activate (Gtk.Action action) {
+		void new_callback (SimpleAction action, Variant? parameter) {
 			string[] argv = { AppCore.core.lyx_path, "--execute", "buffer-new" };
 			try {
 				var subprocess = new SubprocessLauncher(  SubprocessFlags.STDIN_PIPE
@@ -99,8 +134,7 @@ namespace LAview.Desktop {
 			}
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_open_activate (Gtk.Action action) {
+		void open_callback (SimpleAction action, Variant? parameter) {
 			FileChooserDialog chooser = new Gtk.FileChooserDialog (_("Select templates"), window,
 			                                FileChooserAction.OPEN,
 			                                _("_Cancel"), ResponseType.CANCEL,
@@ -152,13 +186,11 @@ namespace LAview.Desktop {
 			return indices;
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_edit_template_activate (Gtk.Action action) {
+		void edit_callback (SimpleAction action, Variant? parameter) {
 			edit_selected_templates ();
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_delete_activate (Gtk.Action action) {
+		void delete_callback (SimpleAction action, Variant? parameter) {
 			var indices = get_template_indices ();
 			for (int i = indices.length; i > 0; )
 				AppCore.core.remove_template (indices[--i]);
@@ -201,8 +233,7 @@ namespace LAview.Desktop {
 			}
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_compose_activate (Gtk.Action action) {
+		void compose_callback (SimpleAction action, Variant? parameter) {
 			compose_object();
 		}
 
@@ -213,8 +244,7 @@ namespace LAview.Desktop {
 			compose_object();
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_edit_result_activate (Gtk.Action action) {
+		void edit_result_callback (SimpleAction action, Variant? parameter) {
 			try {
 				if (get_template_indices().length != 0) {
 					var lyx_path = AppCore.core.get_lyx_file_path ();
@@ -239,8 +269,7 @@ namespace LAview.Desktop {
 			}
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_print_activate (Gtk.Action action) {
+		void print_callback (SimpleAction action, Variant? parameter) {
 			if (get_template_indices().length != 0) {
 				try {
 					subprocess_dialog.show_all (AppCore.core.print_document (),
@@ -255,13 +284,11 @@ namespace LAview.Desktop {
 			}
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_preferences_activate (Gtk.Action action) {
+		void preferences_callback (SimpleAction action, Variant? parameter) {
 			pref_dialog.show_all ();
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_ref_activate (Gtk.Action action) {
+		void ref_callback (SimpleAction action, Variant? parameter) {
 			try {
 				show_uri (null, "https://redmine.backbone.ws/projects/laview/wiki", Gdk.CURRENT_TIME);
 			} catch (Error err) {
@@ -323,8 +350,7 @@ namespace LAview.Desktop {
 			statusbar_show (_("Press 'Properties' button to compose the object."));
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_saveas_activate (Gtk.Action action) {
+		void saveas_callback (SimpleAction action, Variant? parameter) {
 			var indices = get_template_indices ();
 			if (indices.length == 0) return;
 			string tmp_pdf = "";
@@ -386,8 +412,7 @@ namespace LAview.Desktop {
 			chooser.close ();
 		}
 
-		[CCode (instance_pos = -1)]
-		public void action_quit_activate (Gtk.Action action) {
+		void quit_callback (SimpleAction action, Variant? parameter) {
 			window.destroy();
 		}
 

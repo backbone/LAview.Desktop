@@ -38,87 +38,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkActionGroup" id="actiongroup_main">
-    <child>
-      <object class="GtkAction" id="action_new">
-        <property name="stock_id">gtk-new</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_new_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_open">
-        <property name="stock_id">gtk-open</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_open_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_edit_template">
-        <property name="label" translatable="yes">_Template</property>
-        <property name="stock_id">gtk-edit</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_edit_template_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_delete">
-        <property name="stock_id">gtk-delete</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_delete_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_prepare">
-        <property name="stock_id">gtk-properties</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_compose_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_print">
-        <property name="stock_id">gtk-print</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_print_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_ref">
-        <property name="stock_id">gtk-help</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_ref_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_preferences">
-        <property name="stock_id">gtk-preferences</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_preferences_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_edit_result">
-        <property name="label" translatable="yes">_Document</property>
-        <property name="stock_id">gtk-edit</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_edit_result_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_saveas">
-        <property name="stock_id">gtk-save</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_saveas_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_quit">
-        <property name="stock_id">gtk-quit</property>
-        <property name="always_show_image">True</property>
-        <signal name="activate" handler="laview_desktop_main_window_action_quit_activate" swapped="no"/>
-      </object>
-    </child>
-  </object>
   <object class="GtkFileFilter" id="filefilter_open">
     <patterns>
       <pattern>*.lyx</pattern>
@@ -534,10 +453,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_new">
                         <property name="label">gtk-new</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_new</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.new</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -547,10 +465,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_open">
                         <property name="label">gtk-open</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.open</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -560,10 +477,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_edit_template">
                         <property name="label">gtk-edit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_edit_template</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.edit</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -573,10 +489,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_delete">
                         <property name="label">gtk-delete</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_delete</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.delete</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -585,7 +500,6 @@
                     </child>
                     <child>
                       <object class="GtkSeparatorMenuItem" id="menuitem_separator">
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                       </object>
@@ -593,10 +507,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_quit">
                         <property name="label">gtk-quit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_quit</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.quit</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -620,11 +533,10 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_prepare">
                         <property name="label">gtk-properties</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_prepare</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="opacity">0.97999999999999998</property>
+                        <property name="action_name">app.compose</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -634,10 +546,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_print">
                         <property name="label">gtk-print</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_print</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.print</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -647,10 +558,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_edit_result">
                         <property name="label">gtk-edit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_edit_result</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.edit_result</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -659,10 +569,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_saveas">
                         <property name="label">gtk-save</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_saveas</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.saveas</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -686,10 +595,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_preferences">
                         <property name="label">gtk-preferences</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_preferences</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.preferences</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -712,10 +620,9 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_ref">
                         <property name="label">gtk-help</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_ref</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="action_name">app.ref</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
@@ -726,7 +633,6 @@
                     <child>
                       <object class="GtkImageMenuItem" id="menuitem_about">
                         <property name="label">gtk-about</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -753,11 +659,11 @@
             <property name="toolbar_style">both</property>
             <child>
               <object class="GtkToolButton" id="toolbutton_new">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_new</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Create a new template</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.new</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-new</property>
               </object>
@@ -768,11 +674,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_open">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_open</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Open a template</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.open</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-open</property>
               </object>
@@ -783,11 +689,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_edit_template">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_edit_template</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Change selected template</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.edit</property>
                 <property name="label" translatable="yes">_Template</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-edit</property>
@@ -799,11 +705,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_delete">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_delete</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Delete selected template</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.delete</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-delete</property>
               </object>
@@ -824,11 +730,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_prepare">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_prepare</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Document object preparing</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.compose</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-properties</property>
               </object>
@@ -839,11 +745,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_print">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">View and print the document</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.print</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-print</property>
               </object>
@@ -854,11 +760,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_edit_result">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_edit_result</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Edit the result document</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.edit_result</property>
                 <property name="label" translatable="yes">_Document</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-edit</property>
@@ -870,11 +776,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_saveas">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_saveas</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Save the document as...</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.saveas</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-save</property>
               </object>
@@ -895,11 +801,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_preferences">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_preferences</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Application preferences</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.preferences</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-preferences</property>
               </object>
@@ -910,11 +816,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_ref">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_ref</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Help and reference</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.ref</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-help</property>
               </object>
@@ -935,11 +841,11 @@
             </child>
             <child>
               <object class="GtkToolButton" id="toolbutton_quit">
-                <property name="use_action_appearance">True</property>
-                <property name="related_action">action_quit</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Close the application</property>
+                <property name="is_important">True</property>
+                <property name="action_name">app.quit</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-quit</property>
               </object>
@@ -1014,11 +920,10 @@
                     <child>
                       <object class="GtkButton" id="button_new">
                         <property name="label">gtk-new</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_new</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.new</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
@@ -1031,11 +936,10 @@
                     <child>
                       <object class="GtkButton" id="button_open">
                         <property name="label">gtk-open</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_open</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.open</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
@@ -1048,11 +952,10 @@
                     <child>
                       <object class="GtkButton" id="button_edit_template">
                         <property name="label">gtk-edit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_edit_template</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.edit</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
@@ -1065,12 +968,11 @@
                     <child>
                       <object class="GtkButton" id="button_delete">
                         <property name="label">gtk-delete</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_delete</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="resize_mode">immediate</property>
+                        <property name="action_name">app.delete</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
@@ -1145,14 +1047,12 @@
                     <child>
                       <object class="GtkButton" id="button_prepare">
                         <property name="label">gtk-properties</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_prepare</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.compose</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <property name="yalign">0.44999998807907104</property>
                         <property name="always_show_image">True</property>
                       </object>
                       <packing>
@@ -1164,11 +1064,10 @@
                     <child>
                       <object class="GtkButton" id="button_print">
                         <property name="label">gtk-print</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_print</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.print</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
@@ -1181,11 +1080,10 @@
                     <child>
                       <object class="GtkButton" id="button_edit_result">
                         <property name="label">gtk-edit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_edit_result</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.edit_result</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
@@ -1198,11 +1096,10 @@
                     <child>
                       <object class="GtkButton" id="button_saveas">
                         <property name="label">gtk-save</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="related_action">action_saveas</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="action_name">app.saveas</property>
                         <property name="use_stock">True</property>
                         <property name="always_show_image">True</property>
                       </object>
