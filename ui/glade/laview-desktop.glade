@@ -523,7 +523,6 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkMenuItem" id="menuitem_file">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Template</property>
@@ -610,7 +609,6 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="menuitem_document">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Document</property>
@@ -677,7 +675,6 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="menuitem_app">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Application</property>
@@ -704,7 +701,6 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="menuitem_help">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Help</property>
