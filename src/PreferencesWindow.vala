@@ -12,6 +12,8 @@ namespace LAview.Desktop {
 		FileChooserButton filechooserbutton_lyx;
 		FileChooserButton filechooserbutton_latexmk;
 		FileChooserButton filechooserbutton_perl;
+		TreeView treeview_data;
+		TreeView treeview_protocol_objects;
 
 		public PreferencesDialog (Gtk.Application application, Window parent) throws Error {
 			var builder = new Builder ();
@@ -28,6 +30,8 @@ namespace LAview.Desktop {
 			filechooserbutton_lyx = builder.get_object ("filechooserbutton_lyx") as FileChooserButton;
 			filechooserbutton_latexmk = builder.get_object ("filechooserbutton_latexmk") as FileChooserButton;
 			filechooserbutton_perl = builder.get_object ("filechooserbutton_perl") as FileChooserButton;
+			treeview_data = builder.get_object ("treeview_data") as TreeView;
+			treeview_protocol_objects = builder.get_object ("treeview_protocol_objects") as TreeView;
 
 			fill_liststore_data ();
 			fill_liststore_objects ();
@@ -77,6 +81,70 @@ namespace LAview.Desktop {
 		[CCode (instance_pos = -1)]
 		public void perl_file_set (FileChooserButton chooser) {
 			AppCore.core.perl_path = chooser.get_filename ();
+		}
+
+		int[] get_data_indices () {
+			var selection = treeview_data.get_selection ();
+			var selected_rows = selection.get_selected_rows (null);
+			int[] indices = {};
+			foreach (var r in selected_rows) {
+				indices += r.get_indices()[0];
+			}
+			return indices;
+		}
+
+		int[] get_objects_indices () {
+			var selection = treeview_protocol_objects.get_selection ();
+			var selected_rows = selection.get_selected_rows (null);
+			int[] indices = {};
+			foreach (var r in selected_rows) {
+				indices += r.get_indices()[0];
+			}
+			return indices;
+		}
+
+		void call_data_preferences () {
+			var indices = get_data_indices ();
+			for (int i = indices.length; i > 0;)
+				foreach (var p in AppCore.core.data_plugins.entries)
+					if (indices[--i] == 0) {
+						p.value.preferences();
+						break;
+					}
+		}
+
+		void call_object_preferences () {
+			var indices = get_objects_indices ();
+			for (int i = indices.length; i > 0;)
+				foreach (var p in AppCore.core.object_plugins.entries)
+					if (indices[--i] == 0) {
+						p.value.preferences();
+						break;
+					}
+		}
+
+		[CCode (instance_pos = -1)]
+		public void button_data_preferences_clicked (Button button) {
+			call_data_preferences();
+		}
+
+		[CCode (instance_pos = -1)]
+		public void button_object_preferences_clicked (Button button) {
+			call_object_preferences();
+		}
+
+		[CCode (instance_pos = -1)]
+		public void data_row_activated (Gtk.TreeView treeview,
+		                                Gtk.TreePath path,
+		                                Gtk.TreeViewColumn column) {
+			call_data_preferences();
+		}
+
+		[CCode (instance_pos = -1)]
+		public void objects_row_activated (Gtk.TreeView treeview,
+		                                   Gtk.TreePath path,
+		                                   Gtk.TreeViewColumn column) {
+			call_object_preferences();
 		}
 
 		[CCode (instance_pos = -1)]
