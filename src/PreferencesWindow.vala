@@ -108,7 +108,7 @@ namespace LAview.Desktop {
 			for (int i = indices.length; i > 0;)
 				foreach (var p in AppCore.core.data_plugins.entries)
 					if (indices[--i] == 0) {
-						p.value.preferences();
+						p.value.preferences(dialog);
 						break;
 					}
 		}
@@ -118,7 +118,7 @@ namespace LAview.Desktop {
 			for (int i = indices.length; i > 0;)
 				foreach (var p in AppCore.core.object_plugins.entries)
 					if (indices[--i] == 0) {
-						p.value.preferences();
+						p.value.preferences(dialog);
 						break;
 					}
 		}
