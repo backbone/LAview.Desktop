@@ -108,8 +108,15 @@ namespace LAview.Desktop {
 			for (int i = indices.length; i > 0;)
 				foreach (var p in AppCore.core.data_plugins.entries)
 					if (indices[--i] == 0) {
-						p.value.preferences(dialog);
-						break;
+						try {
+							p.value.preferences(dialog);
+							break;
+						} catch (Error err) {
+							var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.ERROR,
+							                             ButtonsType.CLOSE, _("Error: ")+err.message);
+							msg.response.connect ((response_id) => { msg.destroy (); } );
+							msg.show ();
+						}
 					}
 		}
 
@@ -118,8 +125,15 @@ namespace LAview.Desktop {
 			for (int i = indices.length; i > 0;)
 				foreach (var p in AppCore.core.object_plugins.entries)
 					if (indices[--i] == 0) {
-						p.value.preferences(dialog);
-						break;
+						try {
+							p.value.preferences(dialog);
+							break;
+						} catch (Error err) {
+							var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.ERROR,
+							                             ButtonsType.CLOSE, _("Error: ")+err.message);
+							msg.response.connect ((response_id) => { msg.destroy (); } );
+							msg.show ();
+						}
 					}
 		}
 
