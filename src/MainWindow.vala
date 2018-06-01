@@ -416,6 +416,7 @@ namespace LAview.Desktop {
 			window.destroy();
 		}
 
+		#if (WINDOWS)
 		void check_paths () {
 			bool all_paths_exist = true;
 			string[] paths1 = {AppCore.core.lyx_path, AppCore.core.latexmk_pl_path, AppCore.core.perl_path};
@@ -425,5 +426,6 @@ namespace LAview.Desktop {
 			}
 			if (!all_paths_exist) pref_dialog.show_all ();
 		}
+		#endif
 	}
 }
