@@ -105,36 +105,36 @@ namespace LAview.Desktop {
 
 		void call_data_preferences () {
 			var indices = get_data_indices ();
-			for (int i = indices.length; i > 0;)
-				foreach (var p in AppCore.core.data_plugins.entries)
-					if (indices[--i] == 0) {
-						try {
-							p.value.preferences(dialog);
-							break;
-						} catch (Error err) {
-							var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.ERROR,
-							                             ButtonsType.CLOSE, _("Error: ")+err.message);
-							msg.response.connect ((response_id) => { msg.destroy (); } );
-							msg.show ();
-						}
+			var i = indices[0];
+			foreach (var p in AppCore.core.data_plugins.entries)
+				if (i-- == 0) {
+					try {
+						p.value.preferences(dialog);
+						break;
+					} catch (Error err) {
+						var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.ERROR,
+						                             ButtonsType.CLOSE, _("Error: ")+err.message);
+						msg.response.connect ((response_id) => { msg.destroy (); } );
+						msg.show ();
 					}
+				}
 		}
 
 		void call_object_preferences () {
 			var indices = get_objects_indices ();
-			for (int i = indices.length; i > 0;)
-				foreach (var p in AppCore.core.object_plugins.entries)
-					if (indices[--i] == 0) {
-						try {
-							p.value.preferences(dialog);
-							break;
-						} catch (Error err) {
-							var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.ERROR,
-							                             ButtonsType.CLOSE, _("Error: ")+err.message);
-							msg.response.connect ((response_id) => { msg.destroy (); } );
-							msg.show ();
-						}
+			var i = indices[0];
+			foreach (var p in AppCore.core.object_plugins.entries)
+				if (i-- == 0) {
+					try {
+						p.value.preferences(dialog);
+						break;
+					} catch (Error err) {
+						var msg = new MessageDialog (dialog, DialogFlags.MODAL, MessageType.ERROR,
+						                             ButtonsType.CLOSE, _("Error: ")+err.message);
+						msg.response.connect ((response_id) => { msg.destroy (); } );
+						msg.show ();
 					}
+				}
 		}
 
 		[CCode (instance_pos = -1)]
