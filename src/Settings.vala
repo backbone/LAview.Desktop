@@ -3,14 +3,13 @@ namespace LAview.Desktop {
 	public class AppSettings {
 		Settings settings;
 
-		string _pdf_save_path;
+		string _pdf_save_path = "";
 		public string pdf_save_path {
 			get { return _pdf_save_path; }
 			set {
 				if (settings != null) settings.set_string ("pdf-save-path", value);
 				_pdf_save_path = value;
 			}
-			default = "";
 		}
 
 		public AppSettings () throws Error {
