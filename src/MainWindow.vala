@@ -115,7 +115,7 @@ namespace LAview.Desktop {
 		}
 
 		[CCode (instance_pos = -1)]
-		public void menu_about_activate (Gtk.ImageMenuItem item) {
+		public void menu_about_activate (Gtk.MenuItem item) {
 			about_dialog.show_all ();
 		}
 
